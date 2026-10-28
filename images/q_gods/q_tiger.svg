@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="48" height="48">
+  <defs>
+    <radialGradient id="halo4" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFF9C4"/>
+      <stop offset="100%" stop-color="#FFB300" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <circle cx="32" cy="32" r="28" fill="url(#halo4)"/>
+  <!-- 虎耳 -->
+  <circle cx="20" cy="18" r="7" fill="#F39C12"/>
+  <circle cx="20" cy="18" r="4" fill="#C0392B"/>
+  <circle cx="44" cy="18" r="7" fill="#F39C12"/>
+  <circle cx="44" cy="18" r="4" fill="#C0392B"/>
+  <!-- 圓滾滾頭部 -->
+  <circle cx="32" cy="32" r="18" fill="#F5B041" stroke="#D35400" stroke-width="2"/>
+  <!-- 額頭王字 -->
+  <path d="M28 20 L36 20 M32 20 L32 26 M28 23 L36 23 M27 26 L37 26" stroke="#900C3F" stroke-width="1.8" stroke-linecap="round"/>
+  <!-- 萌萌大眼 -->
+  <circle cx="26" cy="31" r="3.5" fill="#2C3E50"/>
+  <circle cx="27" cy="30" r="1.2" fill="#fff"/>
+  <circle cx="38" cy="31" r="3.5" fill="#2C3E50"/>
+  <circle cx="39" cy="30" r="1.2" fill="#fff"/>
+  <!-- 虎嘴咬金元寶 -->
+  <path d="M22 42 Q32 36 42 42 L39 48 Q32 50 25 48 Z" fill="#FFD700" stroke="#B7950B" stroke-width="1.5"/>
+  <ellipse cx="32" cy="41" rx="5" ry="2.5" fill="#FFF176"/>
+  <!-- 小肉墊爪子 -->
+  <circle cx="16" cy="48" r="5" fill="#F5B041"/>
+  <circle cx="48" cy="48" r="5" fill="#F5B041"/>
+  <!-- 金幣指針 -->
+  <polygon points="5,5 17,8 12,15 19,17 7,27 10,18 3,17" fill="#FFC107" stroke="#D35400" stroke-width="1"/>
+</svg>
