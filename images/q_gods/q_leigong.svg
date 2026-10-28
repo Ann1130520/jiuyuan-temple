@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="48" height="48">
+  <defs>
+    <radialGradient id="halo2" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFE880"/>
+      <stop offset="100%" stop-color="#FF5500" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <circle cx="32" cy="32" r="28" fill="url(#halo2)"/>
+  <!-- 雙翼 -->
+  <path d="M12 26 C4 20, 4 38, 16 38 Z" fill="#2E4053"/>
+  <path d="M52 26 C60 20, 60 38, 48 38 Z" fill="#2E4053"/>
+  <!-- 身體 -->
+  <rect x="22" y="38" width="20" height="20" rx="6" fill="#1B4F72"/>
+  <!-- 臉蛋 (青面鳥嘴) -->
+  <circle cx="32" cy="28" r="15" fill="#48C9B0"/>
+  <!-- 帥氣圓眼 -->
+  <circle cx="26" cy="24" r="4" fill="#fff"/>
+  <circle cx="26" cy="24" r="2" fill="#000"/>
+  <circle cx="38" cy="24" r="4" fill="#fff"/>
+  <circle cx="38" cy="24" r="2" fill="#000"/>
+  <!-- 鳥嘴 (啄) -->
+  <polygon points="32,26 38,34 32,38 26,34" fill="#F39C12" stroke="#B9770E" stroke-width="1"/>
+  <!-- 雷公槌與雷楔 -->
+  <path d="M46 30 L58 20" stroke="#795548" stroke-width="3" stroke-linecap="round"/>
+  <rect x="52" y="16" width="8" height="6" rx="2" fill="#E74C3C"/>
+  <polygon points="12,32 20,38 16,42" fill="#BDC3C7"/>
+  <!-- 指向箭頭光標 -->
+  <polygon points="4,4 16,7 11,14 18,16 6,26 9,17 2,16" fill="#00E5FF" stroke="#0055FF" stroke-width="1"/>
+</svg>
