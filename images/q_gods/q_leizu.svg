@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="48" height="48">
+  <defs>
+    <radialGradient id="halo" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFF7C2"/>
+      <stop offset="60%" stop-color="#FFD700" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#FF8C00" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="1.5" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <!-- 光暈背景 -->
+  <circle cx="32" cy="30" r="28" fill="url(#halo)" />
+  <!-- 雷祖身袍 -->
+  <path d="M18 56 C18 42, 46 42, 46 56 Z" fill="#8B0000" stroke="#FFD700" stroke-width="2"/>
+  <!-- 臉部 -->
+  <circle cx="32" cy="28" r="16" fill="#FFE0BD" stroke="#C68A4C" stroke-width="1.5"/>
+  <!-- 祥雲道冠 -->
+  <path d="M22 18 C22 8, 42 8, 42 18 Z" fill="#D4AF37" stroke="#855800" stroke-width="1.5"/>
+  <rect x="29" y="4" width="6" height="8" rx="2" fill="#E60000"/>
+  <circle cx="32" cy="14" r="3" fill="#00E5FF"/>
+  <!-- 三眼天目 (雷祖標誌) -->
+  <path d="M32 18 C30 22, 30 22, 32 25 C34 22, 34 22, 32 18 Z" fill="#FFD700" stroke="#FF0000" stroke-width="0.8"/>
+  <circle cx="32" cy="22" r="1.5" fill="#00F0FF" filter="url(#glow)"/>
+  <!-- 雙眼與腮紅 -->
+  <ellipse cx="26" cy="27" rx="2.5" ry="3.5" fill="#222"/>
+  <ellipse cx="38" cy="27" rx="2.5" ry="3.5" fill="#222"/>
+  <circle cx="27" cy="26" r="1" fill="#fff"/>
+  <circle cx="39" cy="26" r="1" fill="#fff"/>
+  <ellipse cx="22" cy="32" rx="3" ry="1.5" fill="#FF8080" opacity="0.6"/>
+  <ellipse cx="42" cy="32" rx="3" ry="1.5" fill="#FF8080" opacity="0.6"/>
+  <!-- 美髯鬚 -->
+  <path d="M26 36 C28 46, 36 46, 38 36 C34 40, 30 40, 26 36 Z" fill="#333"/>
+  <!-- 雷霆玉如意 -->
+  <path d="M42 34 L54 22" stroke="#FFD700" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="54" cy="20" r="5" fill="#00E5FF" stroke="#FFD700" stroke-width="1.5" filter="url(#glow)"/>
+  <!-- 雷電小火花 (箭頭指針尖端) -->
+  <polygon points="6,6 18,8 12,18 20,20 8,32 11,21 3,20" fill="#FFE600" stroke="#FF5500" stroke-width="1" filter="url(#glow)"/>
+</svg>
