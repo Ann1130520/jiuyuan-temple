@@ -1,0 +1,1834 @@
+/* ===================================================
+   台中烏日九元宮 - 官方網站樣式表
+   風格：莊嚴古典風 (深紅、宮廷金、祥雲暗紋、古典格柵)
+   主祀：九天應元雷聲普化天尊
+=================================================== */
+
+:root {
+    --primary-red: #6D0C15;
+    --dark-red: #42060B;
+    --crimson: #8C141E;
+    --imperial-gold: #D4AF37;
+    --bright-gold: #FFD700;
+    --pale-gold: #F5E6AB;
+    --gold-gradient: linear-gradient(135deg, #FFDF73 0%, #D4AF37 50%, #996515 100%);
+    --gold-text-gradient: linear-gradient(180deg, #FFF1B0 0%, #D4AF37 60%, #AA781D 100%);
+    --bg-dark: #1A0507;
+    --bg-card: rgba(45, 9, 12, 0.88);
+    --border-gold: rgba(212, 175, 55, 0.35);
+    --text-light: #F9F4EB;
+    --text-muted: #D1C5B4;
+    --seal-red: #B02020;
+    --font-kaiti: "DFKai-SB", "BiauKai", "標楷體", "Kaiti TC", "KaiTi", "STKaiti", "Noto Serif TC", serif;
+    --font-serif: "DFKai-SB", "BiauKai", "標楷體", "Kaiti TC", "KaiTi", "STKaiti", "Noto Serif TC", serif;
+    --font-sans: "DFKai-SB", "BiauKai", "標楷體", "Kaiti TC", "KaiTi", system-ui, -apple-system, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    font-family: var(--font-kaiti);
+    line-height: 1.7;
+    position: relative;
+    overflow-x: hidden;
+    background-image: 
+        radial-gradient(circle at 50% 0%, rgba(140, 20, 30, 0.4) 0%, transparent 60%),
+        radial-gradient(circle at 10% 30%, rgba(212, 175, 55, 0.04) 0%, transparent 40%),
+        radial-gradient(circle at 90% 70%, rgba(212, 175, 55, 0.04) 0%, transparent 40%),
+        linear-gradient(rgba(26, 5, 7, 0.96), rgba(26, 5, 7, 0.96)),
+        url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M40 0 C30 15 15 30 0 40 C15 50 30 65 40 80 C50 65 65 50 80 40 C65 30 50 15 40 0 Z' fill='%23D4AF37' fill-opacity='0.02'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+}
+
+input, select, textarea, button {
+    font-family: var(--font-kaiti);
+}
+
+/* 經典標楷體古典標題 */
+h1, h2, h3, h4, .serif-font {
+    font-family: var(--font-kaiti);
+    letter-spacing: 2px;
+}
+
+/* 金屬燙金字體效果 */
+.gold-text {
+    background: var(--gold-text-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 2px 10px rgba(212, 175, 55, 0.3);
+}
+
+/* 萬字回紋邊框裝飾 */
+.chinese-border {
+    position: relative;
+    border: 1px solid var(--border-gold);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5), inset 0 0 15px rgba(212, 175, 55, 0.08);
+}
+.chinese-border::before, .chinese-border::after {
+    content: "❖";
+    position: absolute;
+    color: var(--imperial-gold);
+    font-size: 14px;
+    line-height: 1;
+}
+.chinese-border::before { top: 4px; left: 4px; }
+.chinese-border::after { bottom: 4px; right: 4px; }
+
+/* 頂部導航列 */
+.temple-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(30, 5, 8, 0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 2px solid var(--imperial-gold);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+    transition: all 0.3s ease;
+}
+
+.nav-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1.5rem;
+}
+
+.brand-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+}
+
+.temple-seal {
+    width: 44px;
+    height: 44px;
+    background: var(--seal-red);
+    border: 2px solid var(--imperial-gold);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--pale-gold);
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    font-weight: bold;
+    box-shadow: 0 0 8px rgba(212, 175, 55, 0.4);
+}
+
+.brand-text h1 {
+    font-size: 1.4rem;
+    color: var(--pale-gold);
+    line-height: 1.2;
+}
+
+.brand-text .sub-title {
+    font-size: 0.78rem;
+    color: var(--imperial-gold);
+    letter-spacing: 3px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-light);
+    font-size: 0.95rem;
+    font-family: var(--font-serif);
+    position: relative;
+    padding: 6px 4px;
+    transition: color 0.3s;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0%;
+    height: 2px;
+    background: var(--imperial-gold);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: var(--bright-gold);
+}
+
+.nav-links a:hover::after, .nav-links a.active::after {
+    width: 100%;
+}
+
+.nav-cta {
+    background: linear-gradient(135deg, #B02020 0%, #6D0C15 100%);
+    border: 1px solid var(--imperial-gold);
+    color: var(--pale-gold) !important;
+    padding: 6px 14px !important;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(176, 32, 32, 0.5);
+}
+.nav-cta:hover {
+    background: var(--gold-gradient) !important;
+    color: #42060B !important;
+}
+
+.mobile-menu-btn {
+    display: none;
+    background: transparent;
+    border: none;
+    color: var(--imperial-gold);
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+/* 英雄首頁主視覺 Banner */
+.hero-section {
+    min-height: 100vh;
+    padding-top: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: radial-gradient(circle at center, rgba(140, 20, 30, 0.45) 0%, rgba(26, 5, 7, 0.98) 75%);
+    text-align: center;
+    overflow: hidden;
+}
+
+.hero-bg-clouds {
+    position: absolute;
+    inset: 0;
+    background: 
+        radial-gradient(ellipse 70% 50% at 50% 40%, rgba(212, 175, 55, 0.12) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.hero-lightning-glow {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 215, 0, 0.15) 0%, rgba(255, 85, 0, 0.05) 45%, transparent 70%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: pulseGlow 6s infinite alternate ease-in-out;
+}
+
+@keyframes pulseGlow {
+    0% { transform: translate(-50%, -50%) scale(0.9); opacity: 0.6; }
+    100% { transform: translate(-50%, -50%) scale(1.15); opacity: 0.95; }
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    padding: 2rem;
+}
+
+.hero-badge {
+    display: inline-block;
+    padding: 6px 18px;
+    border: 1px solid var(--imperial-gold);
+    background: rgba(66, 6, 11, 0.7);
+    color: var(--pale-gold);
+    font-family: var(--font-serif);
+    font-size: 0.95rem;
+    letter-spacing: 4px;
+    margin-bottom: 1.25rem;
+    border-radius: 30px;
+}
+
+.hero-main-title {
+    font-size: clamp(2.4rem, 6vw, 4.2rem);
+    font-weight: 900;
+    margin-bottom: 0.8rem;
+    line-height: 1.15;
+}
+
+.hero-deity-title {
+    font-size: clamp(1.3rem, 3.2vw, 2.2rem);
+    color: var(--pale-gold);
+    margin-bottom: 1.5rem;
+    text-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+}
+
+.hero-couplet {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 1.8rem 0 2.5rem;
+}
+
+.couplet-line {
+    font-family: var(--font-serif);
+    font-size: 1.15rem;
+    color: var(--text-muted);
+    border-left: 2px solid var(--imperial-gold);
+    border-right: 2px solid var(--imperial-gold);
+    padding: 4px 14px;
+    background: rgba(45, 9, 12, 0.4);
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.btn-temple {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 28px;
+    font-size: 1.05rem;
+    font-family: var(--font-serif);
+    letter-spacing: 2px;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.btn-temple-primary {
+    background: var(--gold-gradient);
+    color: #38070B;
+    font-weight: bold;
+    border: 1px solid #FFE680;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+}
+.btn-temple-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(255, 215, 0, 0.6);
+}
+
+.btn-temple-outline {
+    background: rgba(66, 6, 11, 0.6);
+    color: var(--pale-gold);
+    border: 1px solid var(--imperial-gold);
+}
+.btn-temple-outline:hover {
+    background: rgba(212, 175, 55, 0.15);
+    border-color: var(--bright-gold);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* 祈福香爐裊裊青煙裝飾 */
+.hero-censer-icon {
+    font-size: 3rem;
+    margin-top: 2rem;
+    filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.6));
+    animation: gentleFloat 4s ease-in-out infinite;
+}
+@keyframes gentleFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+/* 區塊標準排版 */
+.section-wrapper {
+    padding: 5.5rem 1.5rem;
+    max-width: 1250px;
+    margin: 0 auto;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+    position: relative;
+}
+
+.section-header .section-tag {
+    display: inline-block;
+    color: var(--imperial-gold);
+    font-size: 0.88rem;
+    letter-spacing: 4px;
+    margin-bottom: 0.4rem;
+}
+
+.section-header .section-title {
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    color: var(--pale-gold);
+    margin-bottom: 0.8rem;
+}
+
+.section-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+.section-divider::before, .section-divider::after {
+    content: "";
+    width: 60px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--imperial-gold));
+}
+.section-divider::after {
+    background: linear-gradient(270deg, transparent, var(--imperial-gold));
+}
+.section-divider span {
+    color: var(--imperial-gold);
+    font-size: 1rem;
+}
+
+/* 1. 廟宇歷史與沿革 */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    align-items: center;
+}
+
+.about-card {
+    background: var(--bg-card);
+    padding: 2.5rem;
+    border-radius: 8px;
+}
+
+.about-card h3 {
+    font-size: 1.5rem;
+    color: var(--bright-gold);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.about-card p {
+    color: var(--text-muted);
+    font-size: 1.02rem;
+    margin-bottom: 1.25rem;
+    text-align: justify;
+}
+
+.deity-badge-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 1.5rem;
+}
+
+.deity-badge {
+    background: rgba(140, 20, 30, 0.4);
+    border: 1px solid var(--border-gold);
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 0.88rem;
+    color: var(--pale-gold);
+}
+
+.about-altar-box {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 2px solid var(--border-gold);
+    background: linear-gradient(180deg, rgba(66, 6, 11, 0.8) 0%, rgba(20, 3, 5, 0.95) 100%);
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+}
+
+.altar-inner {
+    text-align: center;
+    padding: 1.5rem;
+    border: 1px dashed rgba(212, 175, 55, 0.4);
+}
+
+.altar-symbol {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    color: var(--imperial-gold);
+}
+
+.altar-inner h4 {
+    font-size: 1.4rem;
+    color: var(--pale-gold);
+    margin-bottom: 0.5rem;
+}
+
+.altar-inner .altar-desc {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+}
+
+.altar-traits {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    text-align: left;
+}
+
+.trait-item {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 0.8rem;
+    border-left: 3px solid var(--imperial-gold);
+}
+.trait-item strong {
+    color: var(--bright-gold);
+    display: block;
+    font-size: 0.9rem;
+    margin-bottom: 2px;
+}
+.trait-item span {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+/* 2. 最新消息與慶典活動 */
+.news-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 0.8rem;
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+}
+
+.news-tab-btn {
+    background: transparent;
+    border: 1px solid var(--border-gold);
+    color: var(--text-muted);
+    padding: 8px 20px;
+    border-radius: 4px;
+    font-family: var(--font-serif);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.news-tab-btn.active, .news-tab-btn:hover {
+    background: var(--primary-red);
+    color: var(--bright-gold);
+    border-color: var(--imperial-gold);
+}
+
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.8rem;
+}
+
+.news-card {
+    background: var(--bg-card);
+    border-radius: 8px;
+    padding: 1.8rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.news-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(212, 175, 55, 0.2);
+}
+
+.news-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.news-badge {
+    background: var(--primary-red);
+    color: var(--pale-gold);
+    font-size: 0.78rem;
+    padding: 3px 10px;
+    border-radius: 3px;
+    border: 1px solid rgba(212, 175, 55, 0.5);
+}
+
+.news-date {
+    color: var(--imperial-gold);
+    font-size: 0.85rem;
+    font-family: var(--font-serif);
+}
+
+.news-card h4 {
+    font-size: 1.25rem;
+    color: #fff;
+    margin-bottom: 0.8rem;
+    line-height: 1.4;
+}
+
+.news-excerpt {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.news-card-link {
+    color: var(--imperial-gold);
+    text-decoration: none;
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-weight: bold;
+    align-self: flex-start;
+}
+.news-card-link:hover {
+    color: var(--bright-gold);
+    text-decoration: underline;
+}
+
+/* 3. 參拜指南與科儀順序 */
+.guide-flow {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3.5rem;
+    position: relative;
+}
+
+.guide-step-card {
+    background: var(--bg-card);
+    padding: 1.8rem 1.4rem;
+    border-radius: 8px;
+    text-align: center;
+    position: relative;
+}
+
+.step-num {
+    width: 40px;
+    height: 40px;
+    background: var(--primary-red);
+    border: 2px solid var(--imperial-gold);
+    color: var(--pale-gold);
+    border-radius: 50%;
+    margin: 0 auto 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-serif);
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.guide-step-card h4 {
+    font-size: 1.15rem;
+    color: var(--pale-gold);
+    margin-bottom: 0.6rem;
+}
+
+.guide-step-card p {
+    color: var(--text-muted);
+    font-size: 0.88rem;
+    line-height: 1.5;
+}
+
+.guide-tips-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.guide-tip-box {
+    background: rgba(35, 7, 10, 0.65);
+    border: 1px solid var(--border-gold);
+    padding: 1.5rem;
+    border-radius: 6px;
+}
+.guide-tip-box h5 {
+    color: var(--bright-gold);
+    font-size: 1.1rem;
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.guide-tip-box ul {
+    list-style: none;
+    color: var(--text-muted);
+    font-size: 0.92rem;
+}
+.guide-tip-box li {
+    margin-bottom: 6px;
+    position: relative;
+    padding-left: 14px;
+}
+.guide-tip-box li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--imperial-gold);
+}
+
+/* 4. 鸞文資料庫 (參考北港武德宮鸞文庫) */
+.luan-header-box {
+    background: var(--bg-card);
+    padding: 2rem;
+    border-radius: 8px;
+    margin-bottom: 2.5rem;
+}
+
+.luan-search-bar {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.luan-search-main {
+    display: flex;
+    align-items: center;
+    background: rgba(20, 3, 5, 0.85);
+    border: 1px solid var(--border-gold);
+    border-radius: 6px;
+    padding: 2px 14px;
+    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.6);
+}
+.luan-search-main:focus-within {
+    border-color: var(--bright-gold);
+    box-shadow: 0 0 12px rgba(212, 175, 55, 0.5);
+}
+
+.search-icon {
+    font-size: 1.2rem;
+    margin-right: 8px;
+    color: var(--imperial-gold);
+}
+
+.luan-search-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: var(--text-light);
+    padding: 12px 0;
+    font-size: 1.05rem;
+    font-family: var(--font-kaiti);
+}
+.luan-search-input:focus {
+    outline: none;
+}
+
+.luan-filters-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.25);
+    padding: 0.8rem 1rem;
+    border-radius: 6px;
+    border: 1px dashed rgba(212, 175, 55, 0.3);
+}
+
+.filter-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.filter-item label {
+    font-size: 0.9rem;
+    color: var(--pale-gold);
+    white-space: nowrap;
+    font-family: var(--font-kaiti);
+}
+
+.luan-filter-select {
+    background: rgba(30, 5, 8, 0.9);
+    border: 1px solid var(--border-gold);
+    color: var(--pale-gold);
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 0.92rem;
+    font-family: var(--font-kaiti);
+    cursor: pointer;
+}
+.luan-filter-select:focus {
+    outline: none;
+    border-color: var(--bright-gold);
+    box-shadow: 0 0 8px rgba(212, 175, 55, 0.4);
+}
+
+.btn-luan-reset {
+    background: transparent;
+    border: 1px solid var(--border-gold);
+    color: var(--text-muted);
+    padding: 6px 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.88rem;
+    font-family: var(--font-kaiti);
+    margin-left: auto;
+    transition: all 0.2s;
+}
+.btn-luan-reset:hover {
+    background: var(--primary-red);
+    color: var(--bright-gold);
+    border-color: var(--imperial-gold);
+}
+
+.luan-results-count {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-top: 1rem;
+}
+
+.luan-cards-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.luan-card {
+    background: var(--bg-card);
+    border-radius: 8px;
+    padding: 2rem;
+    transition: all 0.3s;
+}
+
+.luan-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1.25rem;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+    padding-bottom: 1rem;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+.luan-card-title-group h4 {
+    font-size: 1.35rem;
+    color: var(--bright-gold);
+    margin-bottom: 4px;
+}
+
+.luan-card-date {
+    color: var(--imperial-gold);
+    font-size: 0.9rem;
+    font-family: var(--font-serif);
+}
+
+.luan-god-badge {
+    background: var(--seal-red);
+    color: var(--pale-gold);
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-family: var(--font-serif);
+    font-size: 0.85rem;
+    border: 1px solid var(--imperial-gold);
+}
+
+.luan-verses-box {
+    background: rgba(18, 2, 4, 0.7);
+    border: 1px solid rgba(212, 175, 55, 0.15);
+    padding: 1.5rem;
+    border-radius: 6px;
+    margin-bottom: 1.25rem;
+    text-align: center;
+}
+
+.luan-verse-line {
+    font-family: var(--font-serif);
+    font-size: 1.15rem;
+    color: var(--pale-gold);
+    line-height: 2;
+    letter-spacing: 3px;
+}
+
+.luan-explanation-box {
+    background: rgba(212, 175, 55, 0.05);
+    border-left: 3px solid var(--imperial-gold);
+    padding: 1rem 1.25rem;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+.luan-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+.luan-tags-group {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.luan-tag {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--imperial-gold);
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-size: 0.8rem;
+}
+
+.btn-luan-copy {
+    background: transparent;
+    border: 1px solid var(--border-gold);
+    color: var(--pale-gold);
+    padding: 4px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: all 0.2s;
+}
+.btn-luan-copy:hover {
+    background: var(--imperial-gold);
+    color: #42060B;
+}
+
+/* 5. 線上擲杯 (Moon Blocks) */
+.biao-interactive-wrapper {
+    background: var(--bg-card);
+    border-radius: 12px;
+    padding: 3rem 2rem;
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* 筊杯結果快速圖解欄 */
+.biao-guide-legend {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+    background: rgba(20, 3, 5, 0.7);
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-gold);
+}
+
+.legend-item {
+    padding: 0.6rem;
+    border-radius: 6px;
+    background: rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.legend-badge {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+.legend-badge.sheng { background: rgba(46, 204, 113, 0.2); color: #2ECC71; border: 1px solid #2ECC71; }
+.legend-badge.xiao { background: rgba(241, 196, 15, 0.2); color: #F1C40F; border: 1px solid #F1C40F; }
+.legend-badge.yin { background: rgba(231, 76, 60, 0.2); color: #E74C3C; border: 1px solid #E74C3C; }
+
+.legend-desc {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+}
+
+.biao-altar-scene {
+    position: relative;
+    min-height: 240px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3.5rem;
+    margin: 1.5rem 0;
+    perspective: 800px;
+}
+
+.biao-wrapper-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.biao-item {
+    width: 110px;
+    height: 165px;
+    transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    filter: drop-shadow(0 12px 20px rgba(0, 0, 0, 0.85));
+}
+
+.biao-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.biao-state-pill {
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 0.88rem;
+    font-family: var(--font-serif);
+    font-weight: bold;
+    border: 1px solid var(--border-gold);
+    background: rgba(30, 5, 8, 0.9);
+    color: var(--pale-gold);
+    transition: all 0.3s;
+}
+.biao-state-pill.flat {
+    background: #78281F;
+    color: #FFEBEE;
+    border-color: #E6B0AA;
+}
+.biao-state-pill.round {
+    background: #3E0F0A;
+    color: #FFD700;
+    border-color: #FFD700;
+}
+
+/* 擲筊拋起旋轉中動畫 */
+.biao-tossing .biao-left {
+    animation: tossLeft 1s ease-in-out infinite alternate;
+}
+.biao-tossing .biao-right {
+    animation: tossRight 1s ease-in-out infinite alternate;
+}
+
+@keyframes tossLeft {
+    0% { transform: translateY(0) rotate(0deg) scale(1); }
+    50% { transform: translateY(-90px) rotate(380deg) scale(1.15); }
+    100% { transform: translateY(0) rotate(720deg) scale(1); }
+}
+
+@keyframes tossRight {
+    0% { transform: translateY(0) rotate(0deg) scale(1); }
+    50% { transform: translateY(-100px) rotate(-380deg) scale(1.15); }
+    100% { transform: translateY(0) rotate(-720deg) scale(1); }
+}
+
+.biao-result-display {
+    min-height: 110px;
+    margin-bottom: 2rem;
+    background: rgba(0, 0, 0, 0.25);
+    border: 1px dashed var(--border-gold);
+    border-radius: 8px;
+    padding: 1.2rem;
+}
+
+.result-combination-text {
+    font-size: 1.15rem;
+    color: var(--imperial-gold);
+    margin-bottom: 6px;
+    font-family: var(--font-serif);
+}
+
+.result-badge-text {
+    font-size: 2.2rem;
+    font-family: var(--font-serif);
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+.result-badge-text.sheng { color: #2ECC71; text-shadow: 0 0 15px rgba(46, 204, 113, 0.6); }
+.result-badge-text.xiao { color: #F1C40F; text-shadow: 0 0 15px rgba(241, 196, 15, 0.6); }
+.result-badge-text.yin { color: #E74C3C; text-shadow: 0 0 15px rgba(231, 76, 60, 0.6); }
+
+.result-meaning-text {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+.biao-history-tracker {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.biao-dot-record {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid var(--border-gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    color: var(--imperial-gold);
+    background: rgba(0, 0, 0, 0.4);
+}
+.biao-dot-record.active {
+    background: var(--gold-gradient);
+    color: #42060B;
+    font-weight: bold;
+    box-shadow: 0 0 8px rgba(212, 175, 55, 0.8);
+}
+
+/* 6. 線上求籤解籤 (60甲子籤) */
+.qian-flow-container {
+    background: var(--bg-card);
+    border-radius: 12px;
+    padding: 3rem 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.qian-step-indicator {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+    position: relative;
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.qian-step-indicator::before {
+    content: "";
+    position: absolute;
+    top: 18px;
+    left: 40px;
+    right: 40px;
+    height: 2px;
+    background: rgba(212, 175, 55, 0.3);
+    z-index: 1;
+}
+
+.q-ind-item {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.q-ind-circle {
+    width: 38px;
+    height: 38px;
+    background: var(--bg-dark);
+    border: 2px solid var(--border-gold);
+    color: var(--text-muted);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 6px;
+    font-family: var(--font-serif);
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.q-ind-item.active .q-ind-circle {
+    background: var(--gold-gradient);
+    color: #42060B;
+    border-color: #fff;
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.6);
+}
+
+.q-ind-label {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-family: var(--font-serif);
+}
+.q-ind-item.active .q-ind-label {
+    color: var(--bright-gold);
+    font-weight: bold;
+}
+
+.qian-stage-panel {
+    display: none;
+    text-align: center;
+}
+.qian-stage-panel.active {
+    display: block;
+    animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* 籤筒動畫 */
+.qian-cylinder-box {
+    position: relative;
+    width: 140px;
+    height: 220px;
+    margin: 2rem auto;
+    cursor: pointer;
+}
+
+.qian-barrel {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #78281F 0%, #4D130C 100%);
+    border: 3px solid var(--imperial-gold);
+    border-radius: 12px 12px 30px 30px;
+    position: relative;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.qian-barrel-label {
+    writing-mode: vertical-rl;
+    font-family: var(--font-serif);
+    font-size: 1.4rem;
+    color: var(--pale-gold);
+    letter-spacing: 4px;
+    border: 1px solid rgba(212, 175, 55, 0.5);
+    padding: 8px 4px;
+}
+
+.qian-stick-pop {
+    position: absolute;
+    width: 18px;
+    height: 150px;
+    background: linear-gradient(180deg, #F39C12 0%, #D35400 100%);
+    top: -60px;
+    left: calc(50% - 9px);
+    border-radius: 4px;
+    border: 1px solid #FFE082;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
+    writing-mode: vertical-rl;
+    color: #4A0E17;
+    font-size: 0.75rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 2px;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.shaking .qian-barrel {
+    animation: shakeBarrel 0.6s infinite ease-in-out;
+}
+@keyframes shakeBarrel {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-8deg); }
+    75% { transform: rotate(8deg); }
+}
+
+/* 籤詩展示卡 (經典直排紅紙古典籤條) */
+.qian-result-card {
+    background: linear-gradient(180deg, #FFFDF8 0%, #FBF6E9 100%);
+    color: #2C0E11;
+    border: 4px double #8B0000;
+    border-radius: 8px;
+    padding: 2.5rem 2rem;
+    max-width: 750px;
+    margin: 2rem auto;
+    position: relative;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8);
+}
+
+.qian-result-card::before {
+    content: "台中烏日九元宮 雷祖靈籤";
+    position: absolute;
+    top: 12px;
+    left: 20px;
+    font-family: var(--font-serif);
+    font-size: 0.85rem;
+    color: #8B0000;
+    letter-spacing: 2px;
+}
+
+.qian-card-header {
+    text-align: center;
+    border-bottom: 2px solid #8B0000;
+    padding-bottom: 1.25rem;
+    margin-bottom: 1.5rem;
+}
+
+.qian-number-title {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    color: #8B0000;
+    font-weight: bold;
+    margin-bottom: 0.2rem;
+}
+
+.qian-tags-row {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    color: #555;
+}
+
+.qian-poem-vertical-box {
+    display: flex;
+    justify-content: center;
+    gap: 1.8rem;
+    margin: 2.5rem 0;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    padding: 1.5rem;
+    background: rgba(139, 0, 0, 0.04);
+    border-radius: 6px;
+    border: 1px dashed rgba(139, 0, 0, 0.3);
+    min-height: 220px;
+}
+
+.qian-poem-line {
+    font-family: var(--font-serif);
+    font-size: 1.35rem;
+    letter-spacing: 8px;
+    color: #1A0507;
+    font-weight: bold;
+}
+
+.qian-story-box {
+    background: #FFF4E6;
+    border-left: 4px solid #C0392B;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    text-align: left;
+    font-size: 0.95rem;
+}
+
+.qian-details-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.8rem;
+    text-align: left;
+    margin-bottom: 2rem;
+}
+
+.qian-detail-item {
+    background: rgba(0, 0, 0, 0.03);
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+.qian-detail-item strong {
+    color: #8B0000;
+    margin-right: 6px;
+}
+
+/* 7. 各項科儀活動線上登記 */
+.register-container {
+    background: var(--bg-card);
+    border-radius: 12px;
+    padding: 3rem 2.5rem;
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+.ceremony-picker-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.ceremony-option {
+    border: 1px solid var(--border-gold);
+    background: rgba(20, 3, 5, 0.6);
+    padding: 1.2rem;
+    border-radius: 6px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.ceremony-option:hover, .ceremony-option.selected {
+    background: var(--primary-red);
+    border-color: var(--bright-gold);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+}
+
+.ceremony-option .icon {
+    font-size: 2rem;
+    margin-bottom: 0.4rem;
+    display: block;
+}
+
+.ceremony-option .name {
+    font-family: var(--font-serif);
+    color: var(--pale-gold);
+    font-size: 1.05rem;
+    margin-bottom: 4px;
+}
+
+.ceremony-option .fee {
+    color: var(--bright-gold);
+    font-size: 0.85rem;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 1.25rem;
+}
+
+.form-group label {
+    font-family: var(--font-serif);
+    color: var(--pale-gold);
+    font-size: 0.95rem;
+}
+
+.form-control {
+    background: rgba(20, 3, 5, 0.85);
+    border: 1px solid var(--border-gold);
+    color: var(--text-light);
+    padding: 10px 14px;
+    border-radius: 4px;
+    font-size: 0.95rem;
+}
+.form-control:focus {
+    outline: none;
+    border-color: var(--bright-gold);
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+}
+
+/* 祈福憑證收據 Modal */
+.temple-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(5px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    padding: 1rem;
+}
+.temple-modal-overlay.active {
+    display: flex;
+}
+
+.temple-certificate-box {
+    background: linear-gradient(180deg, #FDF9EE 0%, #F5ECDA 100%);
+    color: #38070B;
+    border: 4px double #8B0000;
+    max-width: 600px;
+    width: 100%;
+    padding: 2.5rem;
+    border-radius: 8px;
+    position: relative;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9);
+}
+
+.certificate-seal {
+    position: absolute;
+    bottom: 2rem;
+    right: 2.5rem;
+    width: 90px;
+    height: 90px;
+    border: 3px solid #8B0000;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #8B0000;
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    font-weight: bold;
+    transform: rotate(-15deg);
+    opacity: 0.85;
+    pointer-events: none;
+    line-height: 1.2;
+    text-align: center;
+}
+
+/* 8. 交通資訊與聯絡方式 */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+}
+
+.contact-info-panel {
+    background: var(--bg-card);
+    padding: 2.5rem;
+    border-radius: 8px;
+}
+
+.contact-item {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 1.5rem;
+    align-items: flex-start;
+}
+
+.contact-icon {
+    font-size: 1.5rem;
+    color: var(--imperial-gold);
+    line-height: 1;
+}
+
+.contact-item h5 {
+    color: var(--bright-gold);
+    font-size: 1.05rem;
+    margin-bottom: 2px;
+}
+
+.contact-item p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+.map-embed-box {
+    background: var(--bg-card);
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--border-gold);
+    display: flex;
+    flex-direction: column;
+}
+
+.map-canvas-mock {
+    height: 320px;
+    background: #252525;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: 
+        radial-gradient(#383838 1px, transparent 1px),
+        radial-gradient(#383838 1px, #202020 1px);
+    background-size: 20px 20px;
+}
+
+.map-pin {
+    text-align: center;
+    animation: pinBounce 2s infinite ease-in-out;
+}
+@keyframes pinBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.map-pin .pin-icon {
+    font-size: 3rem;
+    color: #E74C3C;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.6));
+}
+
+.map-pin .pin-text {
+    background: #8B0000;
+    color: #fff;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-family: var(--font-serif);
+    font-size: 0.85rem;
+    border: 1px solid var(--imperial-gold);
+    margin-top: 4px;
+}
+
+.map-actions {
+    padding: 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(20, 3, 5, 0.9);
+}
+
+/* 頁尾 Footer */
+.temple-footer {
+    background: #0F0203;
+    border-top: 2px solid var(--imperial-gold);
+    padding: 4rem 1.5rem 2rem;
+    color: var(--text-muted);
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+
+.footer-brand h3 {
+    color: var(--bright-gold);
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+}
+
+.footer-brand p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 1.2rem;
+}
+
+.footer-col h4 {
+    color: var(--pale-gold);
+    font-size: 1.15rem;
+    margin-bottom: 1.2rem;
+    border-left: 3px solid var(--imperial-gold);
+    padding-left: 8px;
+}
+
+.footer-links {
+    list-style: none;
+}
+.footer-links li {
+    margin-bottom: 8px;
+}
+.footer-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s;
+}
+.footer-links a:hover {
+    color: var(--bright-gold);
+}
+
+.footer-bottom {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(212, 175, 55, 0.2);
+    font-size: 0.85rem;
+    color: #887B6E;
+}
+
+/* ===================================================
+   神明 Q 圖游標與右上方切換浮動選單樣式
+=================================================== */
+.god-cursor-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 9998;
+}
+
+.custom-god-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: opacity 0.2s ease;
+    will-change: transform;
+}
+
+.custom-god-cursor img {
+    width: 48px;
+    height: 48px;
+    filter: drop-shadow(0 4px 10px rgba(255, 215, 0, 0.5));
+    animation: gentleBob 2.5s infinite ease-in-out;
+}
+
+@keyframes gentleBob {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
+}
+
+.custom-god-cursor .god-name-tag {
+    background: rgba(30, 5, 8, 0.85);
+    color: var(--bright-gold);
+    border: 1px solid var(--imperial-gold);
+    font-family: var(--font-serif);
+    font-size: 0.72rem;
+    padding: 1px 6px;
+    border-radius: 10px;
+    margin-top: 2px;
+    white-space: nowrap;
+    opacity: 0.85;
+}
+
+/* 右上方神明切換按鈕小掛飾 */
+.god-selector-widget {
+    position: fixed;
+    top: 76px;
+    right: 20px;
+    z-index: 1001;
+}
+
+.god-widget-inner {
+    background: rgba(50, 8, 12, 0.9);
+    border: 1px solid var(--imperial-gold);
+    backdrop-filter: blur(6px);
+    color: var(--pale-gold);
+    padding: 6px 14px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s;
+}
+.god-widget-inner:hover {
+    background: var(--primary-red);
+    box-shadow: 0 4px 18px rgba(212, 175, 55, 0.4);
+}
+
+.god-widget-inner .widget-icon {
+    font-size: 1rem;
+    color: var(--bright-gold);
+}
+
+.god-widget-inner strong {
+    color: var(--bright-gold);
+}
+
+.god-widget-inner .widget-arrow {
+    font-size: 0.7rem;
+    color: var(--imperial-gold);
+    transition: transform 0.3s;
+}
+
+.god-dropdown-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    width: 300px;
+    background: rgba(30, 5, 8, 0.98);
+    border: 1px solid var(--imperial-gold);
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+    display: none;
+    backdrop-filter: blur(10px);
+}
+.god-dropdown-menu.show {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+.dropdown-header {
+    font-family: var(--font-serif);
+    color: var(--bright-gold);
+    font-size: 0.95rem;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+    padding-bottom: 8px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.god-list-items {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-height: 280px;
+    overflow-y: auto;
+}
+
+.god-item-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s;
+    border: 1px solid transparent;
+}
+.god-item-option:hover {
+    background: rgba(140, 20, 30, 0.4);
+    border-color: rgba(212, 175, 55, 0.3);
+}
+.god-item-option.active {
+    background: rgba(212, 175, 55, 0.15);
+    border-color: var(--bright-gold);
+}
+
+.god-item-option img {
+    width: 36px;
+    height: 36px;
+}
+
+.god-item-option .name {
+    color: var(--pale-gold);
+    font-size: 0.88rem;
+    font-weight: bold;
+}
+.god-item-option .title {
+    color: var(--text-muted);
+    font-size: 0.75rem;
+}
+
+.god-dropdown-footer {
+    margin-top: 10px;
+    padding-top: 8px;
+    border-top: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.btn-random-god {
+    width: 100%;
+    background: var(--primary-red);
+    color: var(--pale-gold);
+    border: 1px solid var(--imperial-gold);
+    padding: 8px;
+    border-radius: 4px;
+    font-family: var(--font-serif);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.btn-random-god:hover {
+    background: var(--gold-gradient);
+    color: #42060B;
+}
+
+/* 通知浮動訊息 Toast */
+.temple-toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(50px);
+    background: rgba(66, 6, 11, 0.95);
+    border: 1px solid var(--bright-gold);
+    color: var(--pale-gold);
+    font-family: var(--font-serif);
+    padding: 10px 24px;
+    border-radius: 30px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.8), 0 0 10px rgba(212, 175, 55, 0.4);
+    z-index: 10000;
+    opacity: 0;
+    transition: all 0.3s ease;
+    pointer-events: none;
+    font-size: 0.95rem;
+}
+.temple-toast.show {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+}
+
+/* 響應式微調 */
+@media (max-width: 900px) {
+    .nav-links { display: none; }
+    .mobile-menu-btn { display: block; }
+    .about-grid, .contact-grid { grid-template-columns: 1fr; }
+    .guide-tips-grid { grid-template-columns: 1fr; }
+    .footer-container { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .qian-poem-vertical-box { gap: 1rem; }
+    .qian-details-grid { grid-template-columns: 1fr; }
+    .hero-couplet { flex-direction: column; gap: 0.5rem; align-items: center; }
+    .god-selector-widget { top: auto; bottom: 20px; right: 20px; }
+    .god-dropdown-menu { bottom: calc(100% + 8px); top: auto; }
+}
