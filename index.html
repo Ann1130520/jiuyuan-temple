@@ -6,10 +6,10 @@
     <title>台中烏日九元宮 官方網站 ｜ 主祀 九天應元雷聲普化天尊</title>
     <meta name="description" content="台中烏日九元宮官方網站，主祀道教雷部最高主神「九天應元雷聲普化天尊」。提供廟宇沿革、最新慶典法會、參拜指南、鸞文庫、線上擲杯、六十甲子求籤解籤與科儀登記。">
     
-    <!-- 引入 Google Fonts 中文字型 (思源宋體 / 思源黑體) -->
+    <!-- 引入 Google Fonts 中文字型 (思源宋體 / 思源黑體 / 霞鶩文楷 TC 楷體 WebFont，保障手機端 iOS/Android 完美呈現標準標楷體風格) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700;900&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC:wght@300;400;700&family=Noto+Serif+TC:wght@400;600;700;900&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
     
     <!-- 主要樣式表 -->
     <link rel="stylesheet" href="css/style.css">
@@ -32,6 +32,7 @@
             <ul class="nav-links" id="nav-menu">
                 <li><a href="#about">歷史沿革</a></li>
                 <li><a href="#news">慶典活動</a></li>
+                <li><a href="#highlights">活動花絮</a></li>
                 <li><a href="#guide">參拜指南</a></li>
                 <li><a href="#luan">鸞文資料庫</a></li>
                 <li><a href="#biao">線上擲杯</a></li>
@@ -185,6 +186,145 @@
             </article>
         </div>
     </section>
+
+    <!-- 活動花絮 (精彩相簿與法會紀實) -->
+    <section id="highlights" class="section-wrapper">
+        <div class="section-header">
+            <span class="section-tag">EVENT HIGHLIGHTS & GALLERY</span>
+            <h2 class="section-title gold-text">慶典活動花絮</h2>
+            <p style="color: var(--text-muted); font-size: 1.05rem; margin-top: 0.4rem;">
+                法喜充滿 ｜ 神人同慶 ｜ 記錄九元宮精彩殊勝時刻
+            </p>
+            <div class="section-divider"><span>❖</span></div>
+        </div>
+
+        <!-- 影音分類切換 -->
+        <div class="highlights-tabs">
+            <button class="hl-tab-btn active" data-filter="all">全部花絮</button>
+            <button class="hl-tab-btn" data-filter="ceremony">法會醮典</button>
+            <button class="hl-tab-btn" data-filter="pilgrimage">遶境出巡</button>
+            <button class="hl-tab-btn" data-filter="luan">扶鸞道事</button>
+            <button class="hl-tab-btn" data-filter="charity">慈善義舉</button>
+        </div>
+
+        <!-- 花絮卡片網格 -->
+        <div class="highlights-grid">
+            <!-- 1. 雷祖聖誕 -->
+            <div class="highlight-card chinese-border" data-category="ceremony" onclick="openHighlightModal(0)">
+                <div class="hl-img-wrap">
+                    <img src="images/highlights/hl_shengdan.svg" alt="雷祖聖誕千秋雷霆大醮" loading="lazy" />
+                    <div class="hl-overlay">
+                        <span class="hl-zoom-icon">🔍 點擊放大觀賞</span>
+                    </div>
+                    <span class="hl-badge">年度盛典</span>
+                </div>
+                <div class="hl-info">
+                    <div class="hl-meta">📅 農曆六月廿四 ｜ 📍 九元宮大殿</div>
+                    <h4>雷祖聖誕千秋雷霆大醮</h4>
+                    <p>恭賀九天應元雷聲普化天尊萬壽，啟建三朝清醮，道長演法誦經，祈求四時無災、闔境平安。</p>
+                </div>
+            </div>
+
+            <!-- 2. 天赦日補運 -->
+            <div class="highlight-card chinese-border" data-category="ceremony" onclick="openHighlightModal(1)">
+                <div class="hl-img-wrap">
+                    <img src="images/highlights/hl_tianxie.svg" alt="四季天赦日開運補財庫" loading="lazy" />
+                    <div class="hl-overlay">
+                        <span class="hl-zoom-icon">🔍 點擊放大觀賞</span>
+                    </div>
+                    <span class="hl-badge">補運添庫</span>
+                </div>
+                <div class="hl-info">
+                    <div class="hl-meta">📅 四季天赦良辰 ｜ 📍 內殿壇前</div>
+                    <h4>四季天赦日開運補財庫法會</h4>
+                    <p>百事無忌殊勝良辰，敬備金銀疏文，請雷祖開恩赦愆，增補信眾財庫，迎吉納祥。</p>
+                </div>
+            </div>
+
+            <!-- 3. 新春點燈 -->
+            <div class="highlight-card chinese-border" data-category="ceremony" onclick="openHighlightModal(2)">
+                <div class="hl-img-wrap">
+                    <img src="images/highlights/hl_deng.svg" alt="新春開斗點燈安太歲科儀" loading="lazy" />
+                    <div class="hl-overlay">
+                        <span class="hl-zoom-icon">🔍 點擊放大觀賞</span>
+                    </div>
+                    <span class="hl-badge">新春祈安</span>
+                </div>
+                <div class="hl-info">
+                    <div class="hl-meta">📅 正月初九天公生 ｜ 📍 凌霄寶殿</div>
+                    <h4>新春開斗點燈安太歲科儀</h4>
+                    <p>雷祖光明燈、文昌帝君智慧燈、太歲消災燈萬盞燈光耀映，庇佑爐下弟子流年順遂。</p>
+                </div>
+            </div>
+
+            <!-- 4. 扶鸞降筆 -->
+            <div class="highlight-card chinese-border" data-category="luan" onclick="openHighlightModal(3)">
+                <div class="hl-img-wrap">
+                    <img src="images/highlights/hl_fuhua.svg" alt="雷祖扶鸞降筆聖訓傳道" loading="lazy" />
+                    <div class="hl-overlay">
+                        <span class="hl-zoom-icon">🔍 點擊放大觀賞</span>
+                    </div>
+                    <span class="hl-badge">扶鸞降筆</span>
+                </div>
+                <div class="hl-info">
+                    <div class="hl-meta">📅 每逢朔望吉期 ｜ 📍 鸞堂正席</div>
+                    <h4>雷祖降筆開示道心聖訓</h4>
+                    <p>鸞生至誠扶柳執桃，天尊降訓化育群品，白話闡示心性修持，字字珠璣銘刻肺腑。</p>
+                </div>
+            </div>
+
+            <!-- 5. 祈安遶境 -->
+            <div class="highlight-card chinese-border" data-category="pilgrimage" onclick="openHighlightModal(4)">
+                <div class="hl-img-wrap">
+                    <img src="images/highlights/hl_raojing.svg" alt="祈安遶境出巡庇佑烏日境內" loading="lazy" />
+                    <div class="hl-overlay">
+                        <span class="hl-zoom-icon">🔍 點擊放大觀賞</span>
+                    </div>
+                    <span class="hl-badge">遶境巡安</span>
+                </div>
+                <div class="hl-info">
+                    <div class="hl-meta">📅 仲秋祈安香期 ｜ 📍 烏日全境</div>
+                    <h4>祈安遶境出巡神尊巡視四方</h4>
+                    <p>神轎生輝威儀萬千，信眾香案虔誠恭迎，掃除境內陰霾凶祟，廣賜闔家福壽康寧。</p>
+                </div>
+            </div>
+
+            <!-- 6. 慈善公益 -->
+            <div class="highlight-card chinese-border" data-category="charity" onclick="openHighlightModal(5)">
+                <div class="hl-img-wrap">
+                    <img src="images/highlights/hl_gongde.svg" alt="冬令送暖慈善白米濟貧義舉" loading="lazy" />
+                    <div class="hl-overlay">
+                        <span class="hl-zoom-icon">🔍 點擊放大觀賞</span>
+                    </div>
+                    <span class="hl-badge">公益慈善</span>
+                </div>
+                <div class="hl-info">
+                    <div class="hl-meta">📅 歲末冬祭 ｜ 📍 廟埕廣場所在</div>
+                    <h4>冬令送暖白米物資濟貧義舉</h4>
+                    <p>實踐雷祖濟世慈悲本懷，匯聚善心信士愛心，發放萬斤平安白米與慰問物資予弱勢鄉親。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 活動花絮全螢幕放大相片燈箱 (Lightbox Modal) -->
+    <div class="hl-lightbox-modal" id="hl-lightbox-modal" onclick="closeHighlightModal(event)">
+        <div class="hl-lightbox-content">
+            <button class="hl-lightbox-close" onclick="closeHighlightModal(event)">✕</button>
+            <div class="hl-lightbox-img-box">
+                <img id="hl-lightbox-img" src="" alt="活動花絮放大圖" />
+            </div>
+            <div class="hl-lightbox-caption">
+                <h3 id="hl-lightbox-title" class="gold-text">花絮名稱</h3>
+                <div id="hl-lightbox-meta" class="hl-lightbox-meta">時間地點</div>
+                <p id="hl-lightbox-desc">詳細介紹</p>
+            </div>
+            <div class="hl-lightbox-nav">
+                <button class="hl-nav-btn prev" onclick="changeHighlightSlide(-1, event)">❮ 上一張</button>
+                <button class="hl-nav-btn next" onclick="changeHighlightSlide(1, event)">下一張 ❯</button>
+            </div>
+        </div>
+    </div>
 
     <!-- 3. 參拜指南與科儀順序 -->
     <section id="guide" class="section-wrapper">
@@ -766,6 +906,7 @@
                 <ul class="footer-links">
                     <li><a href="#about">歷史沿革與主神</a></li>
                     <li><a href="#news">慶典法會行事曆</a></li>
+                    <li><a href="#highlights">慶典活動花絮</a></li>
                     <li><a href="#guide">參拜禮儀與順序</a></li>
                     <li><a href="#luan">鸞文資料庫 (武德宮格式)</a></li>
                     <li><a href="#contact">交通路線與地圖</a></li>
