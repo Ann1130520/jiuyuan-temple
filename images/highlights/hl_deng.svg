@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg_hl_deng.svg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4A0E17"/>
+      <stop offset="50%" stop-color="#9E1A24"/>
+      <stop offset="100%" stop-color="#1A0507"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="600" height="400" fill="url(#bg_hl_deng.svg)"/>
+  <rect x="15" y="15" width="570" height="370" fill="none" stroke="#D4AF37" stroke-width="1.5" opacity="0.5"/>
+  <rect x="23" y="23" width="554" height="354" fill="none" stroke="#D4AF37" stroke-width="0.8" stroke-dasharray="6,4" opacity="0.7"/>
+
+  <g fill="#D4AF37" opacity="0.8">
+    <text x="30" y="46" font-size="16" font-family="serif">❖</text>
+    <text x="556" y="46" font-size="16" font-family="serif">❖</text>
+    <text x="30" y="370" font-size="16" font-family="serif">❖</text>
+    <text x="556" y="370" font-size="16" font-family="serif">❖</text>
+  </g>
+
+  <circle cx="300" cy="180" r="110" fill="#D4AF37" opacity="0.08"/>
+  <circle cx="300" cy="180" r="85" fill="none" stroke="#FFD700" stroke-width="1.5" stroke-dasharray="4,4" opacity="0.4"/>
+
+  <text x="300" y="205" font-size="80" text-anchor="middle" filter="url(#glow)">🪔</text>
+
+  <rect x="235" y="45" width="130" height="28" rx="14" fill="#42060B" stroke="#D4AF37" stroke-width="1.5"/>
+  <text x="300" y="64" font-family="'LXGW WenKai TC', 'DFKai-SB', 'BiauKai', serif" font-size="14" font-weight="bold" fill="#FFDF73" text-anchor="middle">新春祈安</text>
+
+  <rect x="40" y="295" width="520" height="75" rx="6" fill="#1A0507" fill-opacity="0.8" stroke="#D4AF37" stroke-width="1" opacity="0.95"/>
+  <text x="300" y="326" font-family="'LXGW WenKai TC', 'DFKai-SB', 'BiauKai', '標楷體', serif" font-size="19" font-weight="bold" fill="#FFF1B0" text-anchor="middle" letter-spacing="2">新春開斗點燈安太歲科儀</text>
+  <text x="300" y="352" font-family="'LXGW WenKai TC', 'DFKai-SB', 'BiauKai', '標楷體', serif" font-size="13" fill="#D1C5B4" text-anchor="middle" letter-spacing="1">元辰光彩．消災植福 ｜ 光明燈、文昌燈、太歲燈萬盞齊明，庇佑歲次安泰。</text>
+</svg>
