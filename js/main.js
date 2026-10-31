@@ -91,6 +91,7 @@ const templeAudio = new TempleAudioEngine();
 document.addEventListener('DOMContentLoaded', () => {
     initNav();
     initNews();
+    initHighlights();
     initLuanDatabase();
     initBiaoSystem();
     initQianSystem();
@@ -106,17 +107,22 @@ function initNav() {
     const navMenu = document.getElementById('nav-menu');
 
     if (mobileBtn && navMenu) {
-        mobileBtn.addEventListener('click', () => {
-            navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
-            if (navMenu.style.display === 'flex') {
-                navMenu.style.flexDirection = 'column';
-                navMenu.style.position = 'absolute';
-                navMenu.style.top = '100%';
-                navMenu.style.left = '0';
-                navMenu.style.width = '100%';
-                navMenu.style.background = 'rgba(30, 5, 8, 0.98)';
-                navMenu.style.padding = '1.5rem';
-                navMenu.style.borderBottom = '1px solid var(--imperial-gold)';
+        mobileBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            navMenu.classList.toggle('mobile-open');
+        });
+
+        // 點擊任一導航連結後，自動關閉手機選單並平滑滾動
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('mobile-open');
+            });
+        });
+
+        // 點擊網頁其他地方自動關閉手機選單
+        document.addEventListener('click', (e) => {
+            if (!navMenu.contains(e.target) && e.target !== mobileBtn) {
+                navMenu.classList.remove('mobile-open');
             }
         });
     }
@@ -163,6 +169,125 @@ function initNews() {
             });
         });
     });
+}
+
+// -------------------------------------------------------------
+// 4.5 慶典活動花絮相簿與燈箱互動
+// -------------------------------------------------------------
+const HIGHLIGHTS_DATA = [
+    {
+        title: "雷祖聖誕千秋雷霆大醮",
+        meta: "📅 農曆六月廿四 ｜ 📍 九元宮大殿壇前",
+        desc: "恭賀九天應元雷聲普化天尊萬壽無疆！本宮啟建三天雷霆祥醮，經生諷誦玉樞寶經，全體爐下善信齊聚祈安植福，神威顯赫，祥光滿殿。",
+        img: "images/highlights/hl_shengdan.svg",
+        category: "ceremony"
+    },
+    {
+        title: "四季天赦日開運補財庫法會",
+        meta: "📅 四季天赦良辰 ｜ 📍 內殿壇前",
+        desc: "天赦吉日，百事無忌。恭請天尊向玉皇上帝開恩謝罪，焚呈吉祥疏文，為眾弟子填補先天財庫，化解沖煞厄難，祈迎四方利路亨通。",
+        img: "images/highlights/hl_tianxie.svg",
+        category: "ceremony"
+    },
+    {
+        title: "新春開斗點燈安太歲科儀",
+        meta: "📅 正月初九天公生 ｜ 📍 凌霄寶殿",
+        desc: "新春伊始，萬象更新。點亮雷祖光明燈、文昌帝君智慧燈、太歲消災燈萬盞心燈，由道長逐一誦疏唱名，光曜信眾本命元辰。",
+        img: "images/highlights/hl_deng.svg",
+        category: "ceremony"
+    },
+    {
+        title: "雷祖降筆開示道心聖訓",
+        meta: "📅 每逢朔望吉期 ｜ 📍 鸞堂正席",
+        desc: "承傳百年乩鸞正脈，鸞生至誠扶柳執桃，雷祖天尊與雷部諸天君降筆親題七言古詩，闡發身心修為與因果善報，普化甘霖滋潤萬眾善念。",
+        img: "images/highlights/hl_fuhua.svg",
+        category: "luan"
+    },
+    {
+        title: "祈安遶境出巡神尊巡視四方",
+        meta: "📅 仲秋祈安香期 ｜ 📍 烏日全境各里",
+        desc: "雷部至尊聖駕出巡，三十六將官大旗威風凜凜，巡撫地方掃除五方邪魅。沿途信眾設香案虔誠迎駕，鼓樂喧天，境內合家平安泰。",
+        img: "images/highlights/hl_raojing.svg",
+        category: "pilgrimage"
+    },
+    {
+        title: "冬令送暖白米物資濟貧義舉",
+        meta: "📅 歲末冬祭吉辰 ｜ 📍 廟埕廣場所在",
+        desc: "雷祖聖德，貴在濟世利民。本宮秉持救急扶傾宏願，匯聚十方愛心善款，致贈上萬斤平安白米與急難救助金予地方弱勢長者與貧寒家庭。",
+        img: "images/highlights/hl_gongde.svg",
+        category: "charity"
+    }
+];
+
+let currentHlIndex = 0;
+
+function initHighlights() {
+    const tabBtns = document.querySelectorAll('.hl-tab-btn');
+    const cards = document.querySelectorAll('.highlight-card');
+
+    tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            tabBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            const filter = btn.getAttribute('data-filter');
+
+            cards.forEach(card => {
+                if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
+
+    // 鍵盤左右鍵切換燈箱
+    window.addEventListener('keydown', (e) => {
+        const modal = document.getElementById('hl-lightbox-modal');
+        if (modal && modal.classList.contains('active')) {
+            if (e.key === 'Escape') closeHighlightModal();
+            if (e.key === 'ArrowLeft') changeHighlightSlide(-1);
+            if (e.key === 'ArrowRight') changeHighlightSlide(1);
+        }
+    });
+}
+
+function openHighlightModal(index) {
+    currentHlIndex = index;
+    const modal = document.getElementById('hl-lightbox-modal');
+    updateHighlightContent();
+    if (modal) modal.classList.add('active');
+    document.body.style.overflow = 'hidden'; // 防止背景滑動
+}
+
+function closeHighlightModal(e) {
+    if (e && e.target && e.target.classList && !e.target.classList.contains('hl-lightbox-modal') && !e.target.classList.contains('hl-lightbox-close')) {
+        return;
+    }
+    const modal = document.getElementById('hl-lightbox-modal');
+    if (modal) modal.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+function changeHighlightSlide(dir, e) {
+    if (e) e.stopPropagation();
+    currentHlIndex = (currentHlIndex + dir + HIGHLIGHTS_DATA.length) % HIGHLIGHTS_DATA.length;
+    updateHighlightContent();
+}
+
+function updateHighlightContent() {
+    const item = HIGHLIGHTS_DATA[currentHlIndex];
+    if (!item) return;
+
+    const img = document.getElementById('hl-lightbox-img');
+    const title = document.getElementById('hl-lightbox-title');
+    const meta = document.getElementById('hl-lightbox-meta');
+    const desc = document.getElementById('hl-lightbox-desc');
+
+    if (img) img.src = item.img;
+    if (title) title.textContent = item.title;
+    if (meta) meta.textContent = item.meta;
+    if (desc) desc.textContent = item.desc;
 }
 
 // -------------------------------------------------------------
