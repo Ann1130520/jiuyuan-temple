@@ -852,15 +852,14 @@ h1, h2, h3, h4, .serif-font {
     letter-spacing: 3px;
 }
 
-/* 藏頭詩 / 藏尾詩 醒目標紅字體樣式 (朱砂神聖紅 + 微光立體層次) */
+/* 藏頭詩 / 藏尾詩 醒目標紅字體樣式 (純粹正紅色，無光暈無發光) */
 .luan-char-highlight {
-    color: #FF3B30 !important;
-    font-weight: 900 !important;
-    font-size: 1.25em !important;
-    text-shadow: 0 0 10px rgba(255, 59, 48, 0.6), 0 0 2px #FFEBEA !important;
-    padding: 0 2px;
-    display: inline-block;
-    transform: scale(1.05);
+    color: #E74C3C !important;
+    font-weight: bold !important;
+    font-size: 1.15em !important;
+    text-shadow: none !important;
+    filter: none !important;
+    padding: 0 1px;
 }
 
 .luan-explanation-box {
