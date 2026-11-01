@@ -329,7 +329,27 @@ function initLuanDatabase() {
             const card = document.createElement('div');
             card.className = 'luan-card chinese-border';
             
-            const versesHtml = item.verses.map(v => `<div class="luan-verse-line">${v}</div>`).join('');
+            // 處理詩句中的標紅高亮（支援 <span class="luan-char-highlight"> 或直接帶 HTML 標籤）
+            const versesHtml = item.verses.map(v => {
+                // 如果詩句本身尚未帶 HTML，且有指定 highlight 模式時自動高亮首尾
+                let rendered = v;
+                if (!rendered.includes('class=')) {
+                    if (item.highlightType === 'head') {
+                        // 藏頭：首字標紅
+                        const first = rendered.charAt(0);
+                        const rest = rendered.slice(1);
+                        rendered = `<span class="luan-char-highlight">${first}</span>${rest}`;
+                    } else if (item.highlightType === 'head-tail') {
+                        // 藏頭藏尾：首字與末字標紅
+                        const first = rendered.charAt(0);
+                        const middle = rendered.slice(1, -1);
+                        const last = rendered.charAt(rendered.length - 1);
+                        rendered = `<span class="luan-char-highlight">${first}</span>${middle}<span class="luan-char-highlight">${last}</span>`;
+                    }
+                }
+                return `<div class="luan-verse-line">${rendered}</div>`;
+            }).join('');
+            
             const tagsHtml = item.tags.map(t => `<span class="luan-tag">#${t}</span>`).join('');
 
             card.innerHTML = `
@@ -364,7 +384,9 @@ function initLuanDatabase() {
                 const id = btn.getAttribute('data-id');
                 const target = window.LUAN_DATABASE.find(x => x.id === id);
                 if (target) {
-                    const fullText = `【台中烏日九元宮 聖訓鸞文】\n篇名：${target.title}\n降筆神祇：${target.god}\n降鸞吉期：${target.date}\n\n【詩文】：\n${target.verses.join('\n')}\n\n【聖意白話淺釋】：\n${target.interpretation}`;
+                    // 複製時過濾掉 HTML 標籤，保留純文本
+                    const plainVerses = target.verses.map(v => v.replace(/<[^>]+>/g, '')).join('\n');
+                    const fullText = `【台中烏日九元宮 聖訓鸞文】\n篇名：${target.title}\n降筆神祇：${target.god}\n降鸞吉期：${target.date}\n\n【詩文】：\n${plainVerses}\n\n【聖意白話淺釋】：\n${target.interpretation}`;
                     navigator.clipboard.writeText(fullText).then(() => {
                         window.godCursor?.showToast('鸞文已成功複製至剪貼簿！');
                     });
