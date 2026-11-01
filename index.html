@@ -291,17 +291,17 @@
 
             <!-- 6. 慈善公益 -->
             <div class="highlight-card chinese-border" data-category="charity" onclick="openHighlightModal(5)">
-                <div class="hl-img-wrap">
-                    <img src="images/highlights/hl_gongde.svg" alt="冬令送暖慈善白米濟貧義舉" loading="lazy" />
+                <div class="hl-img-wrap" style="background: #2A1515;">
+                    <img src="images/highlights/hl_charity_certificate.png" alt="九元宮捐贈普渡品關懷弱勢兒少獲頒家扶感謝狀" loading="lazy" style="object-fit: contain; width: 100%; height: 100%;" />
                     <div class="hl-overlay">
-                        <span class="hl-zoom-icon">🔍 點擊放大觀賞</span>
+                        <span class="hl-zoom-icon">🔍 點擊放大感謝狀</span>
                     </div>
                     <span class="hl-badge">公益慈善</span>
                 </div>
                 <div class="hl-info">
-                    <div class="hl-meta">📅 歲末冬祭 ｜ 📍 廟埕廣場所在</div>
-                    <h4>冬令送暖白米物資濟貧義舉</h4>
-                    <p>實踐雷祖濟世慈悲本懷，匯聚善心信士愛心，發放萬斤平安白米與慰問物資予弱勢鄉親。</p>
+                    <div class="hl-meta">📅 2026年9月5日 ｜ 📍 台灣兒童暨家庭扶助基金會</div>
+                    <h4>捐贈普渡品關懷弱勢兒少獲頒感謝狀</h4>
+                    <p>九元宮熱心公益，捐贈普渡物資一批嘉惠貧困家庭與弱勢兒少，獲頒家扶基金會感謝狀，實踐天尊慈悲濟世之善心懿行。</p>
                 </div>
             </div>
         </div>
@@ -530,13 +530,13 @@
         </div>
     </section>
 
-    <!-- 6. 線上求籤解籤 (60甲子籤完整版) -->
+    <!-- 6. 線上求籤解籤 (三十六天罡靈籤完整版) -->
     <section id="qian" class="section-wrapper" style="background: rgba(0, 0, 0, 0.25);">
         <div class="section-header">
-            <span class="section-tag">SIXTY JIAZI ORACLE</span>
+            <span class="section-tag">THIRTY-SIX HEAVENLY SPIRITS ORACLE</span>
             <h2 class="section-title gold-text">線上求籤與解籤</h2>
             <p style="color: var(--text-muted); font-size: 1rem; margin-top: 0.4rem;">
-                道教正統「六十甲子靈籤」全套籤詩 ｜ 搖筒抽籤 ｜ 擲筊求肯 ｜ 詳盡解籤
+                台中烏日九元宮「三十六天罡靈籤」全套籤詩 ｜ 搖筒抽籤 ｜ 擲筊求肯 ｜ 詳盡解籤
             </p>
             <div class="section-divider"><span>❖</span></div>
         </div>
@@ -637,21 +637,21 @@
             <div class="qian-stage-panel" id="qian-stage-4">
                 <div class="qian-result-card" id="printable-qian-card">
                     <div class="qian-card-header">
-                        <div class="qian-number-title" id="res-qian-number">第六十甲子籤</div>
+                        <div class="qian-number-title" id="res-qian-number">九元宮三十六天罡靈籤</div>
                         <div class="qian-tags-row">
-                            <span id="res-qian-gua">卦象：</span>
+                            <span id="res-qian-gua">神尊冠首：</span>
                             <span id="res-qian-auspicious" style="color: #C0392B; font-weight: bold;"></span>
-                            <span id="res-qian-title">典故：</span>
+                            <span id="res-qian-title">籤別：</span>
                         </div>
                     </div>
 
-                    <!-- 直排四句詩 -->
+                    <!-- 直排詩句 -->
                     <div class="qian-poem-vertical-box" id="res-qian-poem-box">
-                        <!-- 動態插入四句七言詩 -->
+                        <!-- 動態插入詩句，藏頭字標紅 -->
                     </div>
 
                     <div class="qian-story-box">
-                        <strong>【歷史典故】</strong><br/>
+                        <strong>【聖真冠首】</strong><br/>
                         <span id="res-qian-story"></span>
                     </div>
 
@@ -660,13 +660,9 @@
                         <span id="res-qian-exp"></span>
                     </div>
 
+                    <!-- 各項指引動態網格 -->
                     <div class="qian-details-grid">
-                        <div class="qian-detail-item"><strong>【功名事業】</strong><span id="det-career"></span></div>
-                        <div class="qian-detail-item"><strong>【求財經商】</strong><span id="det-wealth"></span></div>
-                        <div class="qian-detail-item"><strong>【婚姻感情】</strong><span id="det-marriage"></span></div>
-                        <div class="qian-detail-item"><strong>【身心健康】</strong><span id="det-health"></span></div>
-                        <div class="qian-detail-item"><strong>【訴訟官事】</strong><span id="det-litigation"></span></div>
-                        <div class="qian-detail-item"><strong>【遠行出差】</strong><span id="det-travel"></span></div>
+                        <!-- 動態載入指引細項 -->
                     </div>
                 </div>
 
@@ -917,7 +913,7 @@
                 <h4>線上科儀與祈福</h4>
                 <ul class="footer-links">
                     <li><a href="#biao">線上擲杯請示</a></li>
-                    <li><a href="#qian">六十甲子求籤解籤</a></li>
+                    <li><a href="#qian">三十六天罡求籤解籤</a></li>
                     <li><a href="#register">雷祖光明燈登記</a></li>
                     <li><a href="#register">文昌智慧燈登記</a></li>
                     <li><a href="#register">太歲消災燈登記</a></li>
@@ -932,9 +928,9 @@
     </footer>
 
     <!-- 腳本引入順序：資料庫 -> 游標特效 -> 核心互動邏輯 (加上版本號防止瀏覽器快取舊資料) -->
-    <script src="js/data/qian-data.js?v=20261101_v8"></script>
-    <script src="js/data/luan-data.js?v=20261101_v8"></script>
-    <script src="js/q-cursor.js?v=20261101_v8"></script>
-    <script src="js/main.js?v=20261101_v8"></script>
+    <script src="js/data/qian-data.js?v=20261101_v9"></script>
+    <script src="js/data/luan-data.js?v=20261101_v9"></script>
+    <script src="js/q-cursor.js?v=20261101_v9"></script>
+    <script src="js/main.js?v=20261101_v9"></script>
 </body>
 </html>
