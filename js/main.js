@@ -176,11 +176,13 @@ function initNews() {
 // -------------------------------------------------------------
 const HIGHLIGHTS_DATA = [
     {
-        title: "廈門謁祖進香祈安實錄（玉真法院、飛天四聖廟、白礁慈濟宮、皇渡庵）",
+        title: "歲次丙午年 廈門謁祖進香祈安實錄（玉真法院、飛天四聖廟、白礁慈濟宮、皇渡庵）",
         meta: "📅 115年10月7日-10月10日 ｜ 📍 福建廈門祖廟群",
-        desc: "歲次丙午年，台中烏日九元宮赴閩南謁祖進香，巡禮參謁四大祖廟：【玉真法院】飛天大聖祖廟神龕、金身披黃綾；【飛天四聖廟】閩南燕尾亭閣古佛；【白礁慈濟宮】保生大帝祖宮、國寶國母獅、古代皇帝祭天台；【皇渡庵】宋代傳奇皇帝井、廟埕神將演法操令珍貴現場實況。長度1分23秒，歡迎十方善信同霑神恩！",
+        desc: "歲次丙午年，台中烏日九元宮赴閩南謁祖進香，巡禮參謁四大祖廟：【玉真法院】飛天大聖祖廟神龕、主尊金身敬披黃綾；【飛天四聖廟】閩南傳統燕尾亭閣古佛；【白礁慈濟宮】保生大帝祖宮、國寶國母獅、古代皇帝祭天台；【皇渡庵】宋代傳奇皇帝井、廟埕神將演法操令珍貴現場實況。長度1分23秒，配樂採用 Suno AI 創作之《Incense Gongbeat》，歡迎十方善信同霑神恩！",
         img: "images/highlights/hl_xiamen_cover.jpg",
         video: "videos/xiamen_pilgrimage.mp4",
+        youtube: "https://youtu.be/kUcU2It4m6I",
+        youtubeEmbed: "https://www.youtube.com/embed/kUcU2It4m6I?autoplay=1&rel=0",
         category: "xiamen"
     },
     {
@@ -191,11 +193,13 @@ const HIGHLIGHTS_DATA = [
         category: "charity"
     },
     {
-        title: "安營換符祈安實錄",
+        title: "歲次丙午年 安營換符出巡科儀祈安實錄",
         meta: "📅 115年04月19日 ｜ 📍 烏日四方營盤",
-        desc: "神劍定營驅邪煞，五方旗揚鎮乾坤。安設五營神兵神將，敕化平安神符，掃除草野陰霾，庇佑合境平安吉慶。本片精選安營換符精彩科儀紀實，長度一分鐘，歡迎善信同霑神恩。",
+        desc: "神劍定營驅邪煞，五方旗揚鎮乾坤。安設五營神兵神將，敕化平安神符，掃除草野陰霾，庇佑合境平安吉慶。本片精選安營換符精彩科儀紀實，長度一分鐘整，歡迎十方善信同霑神恩。",
         img: "images/highlights/hl_anying_cover.jpg",
         video: "videos/anying_ritual.mp4",
+        youtube: "https://youtu.be/j3Akx1wdivw",
+        youtubeEmbed: "https://www.youtube.com/embed/j3Akx1wdivw?autoplay=1&rel=0",
         category: "anying"
     },
     {
@@ -255,8 +259,12 @@ function closeHighlightModal(e) {
     }
     const modal = document.getElementById('hl-lightbox-modal');
     const video = document.getElementById('hl-lightbox-video');
+    const iframe = document.getElementById('hl-lightbox-iframe');
     if (video) {
         video.pause();
+    }
+    if (iframe) {
+        iframe.src = '';
     }
     if (modal) modal.classList.remove('active');
     document.body.style.overflow = '';
@@ -265,8 +273,12 @@ function closeHighlightModal(e) {
 function changeHighlightSlide(dir, e) {
     if (e) e.stopPropagation();
     const video = document.getElementById('hl-lightbox-video');
+    const iframe = document.getElementById('hl-lightbox-iframe');
     if (video) {
         video.pause();
+    }
+    if (iframe) {
+        iframe.src = '';
     }
     currentHlIndex = (currentHlIndex + dir + HIGHLIGHTS_DATA.length) % HIGHLIGHTS_DATA.length;
     updateHighlightContent();
@@ -278,11 +290,29 @@ function updateHighlightContent() {
 
     const img = document.getElementById('hl-lightbox-img');
     const video = document.getElementById('hl-lightbox-video');
+    const iframe = document.getElementById('hl-lightbox-iframe');
     const title = document.getElementById('hl-lightbox-title');
     const meta = document.getElementById('hl-lightbox-meta');
     const desc = document.getElementById('hl-lightbox-desc');
+    const ytBtn = document.getElementById('hl-lightbox-yt-btn');
 
-    if (item.video) {
+    // 優先以 YouTube 嵌入播放器直接播放
+    if (item.youtubeEmbed) {
+        if (img) img.style.display = 'none';
+        if (video) {
+            video.pause();
+            video.style.display = 'none';
+            video.src = '';
+        }
+        if (iframe) {
+            iframe.style.display = 'block';
+            iframe.src = item.youtubeEmbed;
+        }
+    } else if (item.video) {
+        if (iframe) {
+            iframe.style.display = 'none';
+            iframe.src = '';
+        }
         if (img) img.style.display = 'none';
         if (video) {
             video.style.display = 'block';
@@ -291,6 +321,10 @@ function updateHighlightContent() {
             video.play().catch(function() {});
         }
     } else {
+        if (iframe) {
+            iframe.style.display = 'none';
+            iframe.src = '';
+        }
         if (video) {
             video.pause();
             video.style.display = 'none';
@@ -299,6 +333,15 @@ function updateHighlightContent() {
         if (img) {
             img.style.display = 'block';
             img.src = item.img;
+        }
+    }
+
+    if (ytBtn) {
+        if (item.youtube) {
+            ytBtn.style.display = 'inline-flex';
+            ytBtn.href = item.youtube;
+        } else {
+            ytBtn.style.display = 'none';
         }
     }
 

@@ -308,7 +308,9 @@ def main():
     # Video 1
     add_styled_heading(doc, "6.1 影片一：歲次丙午年 廈門謁祖進香祈安實錄", level=2)
     v1_data = [
-        ("影片檔案", "C:\\Users\\user\\Desktop\\AI課\\台中烏日九元宮_廈門謁祖進香實錄.mp4"),
+        ("正式 YouTube 觀看網址", "https://youtu.be/kUcU2It4m6I （已正式上傳發布，點擊可直接於 YouTube 觀看 1080p Full HD 影片）"),
+        ("YouTube 影片 ID", "kUcU2It4m6I"),
+        ("本機母帶檔案", "C:\\Users\\user\\Desktop\\AI課\\台中烏日九元宮_廈門謁祖進香實錄.mp4"),
         ("視訊規格", "1920x1080 (1080p Full HD) ｜ 30 fps ｜ 時長 83 秒 ｜ 檔案大小 18.55 MB"),
         ("配樂來源", "Suno AI 原創創作《Incense Gongbeat》（白礁慈濟保生大帝救世神曲，自 0 秒磅礡大合唱帶入）"),
         ("YouTube 標題", "【台中烏日九元宮】歲次丙午年 廈門謁祖進香祈安實錄 ｜ 巡禮四大祖廟：玉真法院・飛天四聖廟・白礁慈濟宮・皇渡庵"),
@@ -328,7 +330,9 @@ def main():
     # Video 2
     add_styled_heading(doc, "6.2 影片二：歲次丙午年 安營換符出巡科儀祈安實錄", level=2)
     v2_data = [
-        ("影片檔案", "C:\\Users\\user\\Desktop\\台中烏日九元宮_安營換符實錄.mp4"),
+        ("正式 YouTube 觀看網址", "https://youtu.be/j3Akx1wdivw （已正式上傳發布，點擊可直接於 YouTube 觀看 1080p Full HD 影片）"),
+        ("YouTube 影片 ID", "j3Akx1wdivw"),
+        ("本機母帶檔案", "C:\\Users\\user\\Desktop\\台中烏日九元宮_安營換符實錄.mp4"),
         ("視訊規格", "1920x1080 (1080p Full HD) ｜ 30 fps ｜ 時長 60 秒 (1分鐘整) ｜ 檔案大小 8.32 MB"),
         ("配樂來源", "正統宮廟道教科儀莊嚴神聖配樂（嗩吶、戰鼓、編鐘鳴磬）"),
         ("YouTube 標題", "【台中烏日九元宮】歲次丙午年 安營換符出巡科儀祈安實錄 ｜ 神劍定營驅邪煞・五方旗揚鎮乾坤"),

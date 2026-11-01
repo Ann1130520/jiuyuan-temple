@@ -213,16 +213,21 @@
             <div class="highlight-card chinese-border hl-card-video" data-category="xiamen" onclick="openHighlightModal(0)">
                 <div class="hl-img-wrap">
                     <img src="images/highlights/hl_xiamen_cover.jpg" alt="台中烏日九元宮 廈門玉真法院謁祖進香實錄" loading="lazy" style="object-fit: cover; width: 100%; height: 100%;" />
-                    <div class="hl-video-tag">▶ 盛典影片 (1分23秒)</div>
+                    <div class="hl-video-tag" style="background: rgba(220, 38, 38, 0.95);">▶ YouTube 1080p (1分23秒)</div>
                     <div class="hl-overlay">
-                        <span class="hl-zoom-icon">▶ 點擊播放實錄影片</span>
+                        <span class="hl-zoom-icon">▶ 點擊播放 YouTube 實錄</span>
                     </div>
-                    <span class="hl-badge">謁祖進香</span>
+                    <span class="hl-badge" style="background: rgba(220, 38, 38, 0.85); color: #fff;">YouTube 官方影音</span>
                 </div>
                 <div class="hl-info">
                     <div class="hl-meta">📅 115年10月7日-10月10日 ｜ 📍 福建廈門祖廟群</div>
-                    <h4>廈門謁祖進香祈安實錄（巡禮四大祖廟）</h4>
-                    <p>歲次丙午年烏日九元宮赴閩南謁祖進香：【玉真法院】神龕會香、【飛天四聖廟】燕尾亭閣開基古佛、【白礁慈濟宮】國寶國母獅與古代皇帝祭天台、【皇渡庵】傳奇皇帝井與神將演法操令珍貴實況！</p>
+                    <h4>歲次丙午年 廈門謁祖進香祈安實錄（巡禮四大祖廟）</h4>
+                    <p>歲次丙午年烏日九元宮赴閩南謁祖進香：【玉真法院】主尊飛天大聖敬披黃綾、【飛天四聖廟】閩南傳統燕尾亭閣古佛、【白礁慈濟宮】國寶國母獅與古代皇帝祭天台、【皇渡庵】傳奇皇帝井與神將演法操令珍貴實況！配樂採用 Suno AI 創作之《Incense Gongbeat》。</p>
+                    <div style="margin-top: 8px;">
+                        <span style="display: inline-flex; align-items: center; gap: 4px; color: #ff6b6b; font-size: 0.85rem; font-weight: bold;">
+                            ▶ 點擊直接播放 YouTube 1080p 實況
+                        </span>
+                    </div>
                 </div>
             </div>
 
@@ -245,17 +250,22 @@
             <!-- 3. 安營換符 (115年04月19日) -->
             <div class="highlight-card chinese-border hl-card-video" data-category="anying" onclick="openHighlightModal(2)">
                 <div class="hl-img-wrap">
-                    <img src="images/highlights/hl_anying_cover.jpg" alt="台中烏日九元宮 安營換符祈安實錄" loading="lazy" style="object-fit: cover; width: 100%; height: 100%;" />
-                    <div class="hl-video-tag">▶ 實錄影片 (1分鐘)</div>
+                    <img src="images/highlights/hl_anying_cover.jpg" alt="台中烏日九元宮 安營換符出巡科儀祈安實錄" loading="lazy" style="object-fit: cover; width: 100%; height: 100%;" />
+                    <div class="hl-video-tag" style="background: rgba(220, 38, 38, 0.95);">▶ YouTube 1080p (1分鐘)</div>
                     <div class="hl-overlay">
-                        <span class="hl-zoom-icon">▶ 點擊播放實錄影片</span>
+                        <span class="hl-zoom-icon">▶ 點擊播放 YouTube 實錄</span>
                     </div>
-                    <span class="hl-badge">安營換符</span>
+                    <span class="hl-badge" style="background: rgba(220, 38, 38, 0.85); color: #fff;">YouTube 官方影音</span>
                 </div>
                 <div class="hl-info">
                     <div class="hl-meta">📅 115年04月19日 ｜ 📍 烏日四方營盤</div>
-                    <h4>安營換符祈安實錄</h4>
+                    <h4>歲次丙午年 安營換符出巡科儀祈安實錄</h4>
                     <p>神劍定營驅邪煞，五方旗揚鎮乾坤。安設五營神兵神將，敕化平安神符，掃除草野陰霾，庇佑合境平安吉慶。</p>
+                    <div style="margin-top: 8px;">
+                        <span style="display: inline-flex; align-items: center; gap: 4px; color: #ff6b6b; font-size: 0.85rem; font-weight: bold;">
+                            ▶ 點擊直接播放 YouTube 1080p 實況
+                        </span>
+                    </div>
                 </div>
             </div>
 
@@ -285,11 +295,18 @@
             <div class="hl-lightbox-img-box">
                 <img id="hl-lightbox-img" src="" alt="活動花絮放大圖" />
                 <video id="hl-lightbox-video" src="" controls playsinline style="display: none; width: 100%; height: 100%; object-fit: contain;"></video>
+                <iframe id="hl-lightbox-iframe" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="display: none; width: 100%; height: 100%; min-height: 380px; border-radius: 6px;"></iframe>
             </div>
             <div class="hl-lightbox-caption">
                 <h3 id="hl-lightbox-title" class="gold-text">花絮名稱</h3>
                 <div id="hl-lightbox-meta" class="hl-lightbox-meta">時間地點</div>
                 <p id="hl-lightbox-desc">詳細介紹</p>
+                <div style="margin-top: 0.5rem; margin-bottom: 0.5rem;">
+                    <a id="hl-lightbox-yt-btn" href="#" target="_blank" rel="noopener noreferrer" class="hl-yt-btn" style="display: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                        前往 YouTube 觀看 (1080p Full HD)
+                    </a>
+                </div>
             </div>
             <div class="hl-lightbox-nav">
                 <button class="hl-nav-btn prev" onclick="changeHighlightSlide(-1, event)">❮ 上一張</button>
