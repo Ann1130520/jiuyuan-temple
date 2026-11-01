@@ -1279,24 +1279,30 @@ h1, h2, h3, h4, .serif-font {
 
 .qian-poem-vertical-box {
     display: flex;
+    flex-direction: row-reverse;
     justify-content: center;
-    gap: 1.8rem;
-    margin: 2.5rem 0;
-    writing-mode: vertical-rl;
-    text-orientation: upright;
-    padding: 1.5rem;
+    align-items: center;
+    gap: 2.2rem;
+    margin: 2.5rem auto;
+    padding: 2rem 1.5rem;
     background: rgba(139, 0, 0, 0.04);
     border-radius: 6px;
     border: 1px dashed rgba(139, 0, 0, 0.3);
-    min-height: 220px;
+    max-width: 550px;
+    box-sizing: border-box;
 }
 
 .qian-poem-line {
+    writing-mode: vertical-rl;
+    text-orientation: upright;
     font-family: var(--font-serif);
-    font-size: 1.35rem;
-    letter-spacing: 8px;
+    font-size: 1.4rem;
+    letter-spacing: 10px;
     color: #1A0507;
     font-weight: bold;
+    display: inline-block;
+    white-space: nowrap;
+    line-height: 1.5;
 }
 
 .qian-story-box {
@@ -2216,13 +2222,14 @@ h1, h2, h3, h4, .serif-font {
 
     /* 求籤詩直排手機版留白最佳化 */
     .qian-poem-vertical-box {
-        gap: 0.8rem;
-        padding: 1rem 0.5rem;
-        min-height: 190px;
+        gap: 1.2rem;
+        padding: 1.5rem 0.8rem;
+        max-width: 100%;
+        overflow-x: auto;
     }
     .qian-poem-line {
-        font-size: 1.15rem;
-        letter-spacing: 5px;
+        font-size: 1.25rem;
+        letter-spacing: 6px;
     }
     .qian-details-grid {
         grid-template-columns: 1fr;
