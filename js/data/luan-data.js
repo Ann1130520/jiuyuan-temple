@@ -1,6 +1,7 @@
 /**
  * 台中烏日九元宮 - 鸞文資料庫
  * 包含降鸞時間（國曆與農曆）、降筆神尊、原著七言詩句、白話淺釋與主題標籤。
+ * 藏頭 / 藏尾詩支援 highlightType: 'head' (藏頭) 或 'head-tail' (藏頭藏尾)
  */
 window.LUAN_DATABASE = [
     {
@@ -13,6 +14,7 @@ window.LUAN_DATABASE = [
         "god": "天官西路武財神 降筆",
         "title": "天官西路武財神 降示（第一篇）",
         "theme": "宮廟盛事",
+        "highlightType": "head",
         "verses": [
             "天檀飄復繞圍煙",
             "官沉心境叩聖火",
@@ -35,6 +37,7 @@ window.LUAN_DATABASE = [
         "god": "天官西路武財神 降筆",
         "title": "普天大天尊 降示（第二篇）",
         "theme": "心性修持",
+        "highlightType": "head-tail",
         "verses": [
             "普教大儒至慧普",
             "天設屯軍種糧化",
@@ -55,6 +58,7 @@ window.LUAN_DATABASE = [
         "god": "天官西路武財神 降筆",
         "title": "九天道姆降 示訓（第三篇）",
         "theme": "心性修持",
+        "highlightType": "head-tail",
         "verses": [
             "九儀龍慶靈修大",
             "天慈華興慶成令",
