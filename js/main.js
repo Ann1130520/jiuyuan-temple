@@ -177,7 +177,7 @@ function initNews() {
 const HIGHLIGHTS_DATA = [
     {
         title: "雷祖聖誕千秋雷霆大醮",
-        meta: "📅 農曆六月廿四 ｜ 📍 九元宮大殿壇前",
+        meta: "📅 農曆八月初五 ｜ 📍 九元宮大殿壇前",
         desc: "恭賀九天應元雷聲普化天尊萬壽無疆！本宮啟建三天雷霆祥醮，經生諷誦玉樞寶經，全體爐下善信齊聚祈安植福，神威顯赫，祥光滿殿。",
         img: "images/highlights/hl_shengdan.svg",
         category: "ceremony"
