@@ -357,8 +357,8 @@ function initLuanDatabase() {
                     <div class="luan-card-title-group">
                         <h4>${item.title}</h4>
                         <div class="luan-card-date">
-                            <span>📅 降鸞吉期：<strong>${item.date}</strong></span>
-                            ${item.lunarDate ? `<span style="margin-left:8px; color:var(--pale-gold);">(${item.lunarDate})</span>` : ''}
+                            <div class="luan-date-row"><span>🗓️</span> <strong>${item.solarDate || item.date}</strong></div>
+                            <div class="luan-date-row" style="color:var(--bright-gold); margin-top:2px;"><span>🏮</span> <strong>${item.lunarDate}</strong></div>
                         </div>
                     </div>
                     <span class="luan-god-badge">⚡ ${item.god}</span>
@@ -386,7 +386,7 @@ function initLuanDatabase() {
                 if (target) {
                     // 複製時過濾掉 HTML 標籤，保留純文本
                     const plainVerses = target.verses.map(v => v.replace(/<[^>]+>/g, '')).join('\n');
-                    const fullText = `【台中烏日九元宮 聖訓鸞文】\n篇名：${target.title}\n降筆神祇：${target.god}\n降鸞吉期：${target.date}\n\n【詩文】：\n${plainVerses}\n\n【聖意白話淺釋】：\n${target.interpretation}`;
+                    const fullText = `【台中烏日九元宮 聖訓鸞文】\n篇名：${target.title}\n降筆神祇：${target.god}\n${target.solarDate || target.date}\n${target.lunarDate}\n\n【詩文】：\n${plainVerses}\n\n【聖意白話淺釋】：\n${target.interpretation}`;
                     navigator.clipboard.writeText(fullText).then(() => {
                         window.godCursor?.showToast('鸞文已成功複製至剪貼簿！');
                     });
