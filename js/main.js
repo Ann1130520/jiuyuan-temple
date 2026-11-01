@@ -211,10 +211,10 @@ const HIGHLIGHTS_DATA = [
         category: "pilgrimage"
     },
     {
-        title: "冬令送暖白米物資濟貧義舉",
-        meta: "📅 歲末冬祭吉辰 ｜ 📍 廟埕廣場所在",
-        desc: "雷祖聖德，貴在濟世利民。本宮秉持救急扶傾宏願，匯聚十方愛心善款，致贈上萬斤平安白米與急難救助金予地方弱勢長者與貧寒家庭。",
-        img: "images/highlights/hl_gongde.svg",
+        title: "捐贈普渡品關懷弱勢兒少獲頒家扶感謝狀",
+        meta: "📅 2026年9月5日 ｜ 📍 台灣兒童暨家庭扶助基金會",
+        desc: "台中烏日九元宮熱心公益，積極關懷台中市弱勢兒少，中元普渡圓滿後捐贈普渡物資一批，嘉惠貧困家庭及兒童。榮獲家扶基金會台中北區分事務所致贈感謝狀肯定，實踐雷尊慈悲濟世之善心懿行：「懂得給予及憐恤人的，是最富足的。」",
+        img: "images/highlights/hl_charity_certificate.png",
         category: "charity"
     }
 ];
@@ -630,17 +630,17 @@ function initQianSystem() {
         setTimeout(() => {
             cylinderBox.classList.remove('shaking');
             
-            // 隨機自 60 籤庫中抽取一首
+            // 隨機自 36 籤庫中抽取一首
             const randomIndex = Math.floor(Math.random() * window.QIAN_DATABASE.length);
             currentDrawnQian = window.QIAN_DATABASE[randomIndex];
 
             // 籤枝浮起
-            stickPop.textContent = `第${currentDrawnQian.id}籤 ${currentDrawnQian.ganzhi}`;
+            stickPop.textContent = `第${currentDrawnQian.id}籤 ${currentDrawnQian.name}`;
             stickPop.style.transform = 'translateY(-30px)';
 
             setTimeout(() => {
                 // 進入第 3 階段：擲筊請示
-                document.getElementById('drawn-qian-badge').textContent = `第 ${currentDrawnQian.id} 籤【${currentDrawnQian.ganzhi}】`;
+                document.getElementById('drawn-qian-badge').textContent = `第 ${currentDrawnQian.id} 籤【${currentDrawnQian.name}】`;
                 goToStage(3);
                 isDrawing = false;
                 stickPop.style.transform = 'translateY(0)';
@@ -707,24 +707,53 @@ function initQianSystem() {
 
     // Step 4: 渲染籤詩結果
     function renderQianResult(qian) {
-        document.getElementById('res-qian-number').textContent = `第六十甲子籤 第 ${qian.id} 首 【${qian.ganzhi}】`;
-        document.getElementById('res-qian-gua').textContent = `卦象：${qian.gua}`;
-        document.getElementById('res-qian-auspicious').textContent = `吉凶：${qian.auspicious}`;
-        document.getElementById('res-qian-title').textContent = `典故：${qian.title}`;
+        document.getElementById('res-qian-number').textContent = `九元宮三十六天罡靈籤 第 ${qian.id} 首 【${qian.name}】`;
+        document.getElementById('res-qian-gua').textContent = `神尊冠首：${qian.acrostic}`;
+        document.getElementById('res-qian-auspicious').textContent = `籤運：${qian.auspicious}`;
+        document.getElementById('res-qian-title').textContent = `籤別：${qian.numberTitle}`;
 
         const poemBox = document.getElementById('res-qian-poem-box');
-        poemBox.innerHTML = qian.poem.map(line => `<div class="qian-poem-line">${line}</div>`).join('');
+        // 直排詩句，並將首字（藏頭神尊）標記純紅字
+        poemBox.innerHTML = qian.poem.map(line => {
+            const head = line.slice(0, 1);
+            const rest = line.slice(1);
+            return `<div class="qian-poem-line"><span class="luan-char-highlight" style="color: #E74C3C; font-weight: bold;">${head}</span>${rest}</div>`;
+        }).join('');
 
-        document.getElementById('res-qian-story').textContent = qian.story;
-        document.getElementById('res-qian-exp').textContent = qian.explanation;
+        const storyBox = document.getElementById('res-qian-story');
+        if (storyBox) {
+            storyBox.textContent = `本籤冠首藏頭為【${qian.acrostic}】，為雷部仙真開示之天罡靈應玉律。`;
+        }
 
-        // 細項解析
-        document.getElementById('det-career').textContent = qian.details.career;
-        document.getElementById('det-wealth').textContent = qian.details.wealth;
-        document.getElementById('det-marriage').textContent = qian.details.marriage;
-        document.getElementById('det-health').textContent = qian.details.health;
-        document.getElementById('det-litigation').textContent = qian.details.litigation;
-        document.getElementById('det-travel').textContent = qian.details.travel;
+        const expBox = document.getElementById('res-qian-exp');
+        if (expBox) {
+            if (qian.summary) {
+                expBox.innerHTML = `<span style="font-size: 1.05rem; font-weight: bold; color: #8B0000;">${qian.summary}</span><br/><span style="color: #666; font-size: 0.9rem; margin-top: 4px; display: inline-block;">此籤降示：世人行事當遵天道、順天時，秉持正念修福，神明自當護佑化解。</span>`;
+            } else {
+                expBox.textContent = `此籤為【${qian.auspicious}】，神明垂示：目前所問之事，當修心向善、廣行功德。遵循神聖指引，順應天心而為，諸事自能漸入佳境、逢凶化吉。`;
+            }
+        }
+
+        // 動態渲染各項指引
+        const detailsGrid = document.querySelector('.qian-details-grid');
+        if (detailsGrid) {
+            if (qian.details && qian.details.length > 0) {
+                detailsGrid.style.display = 'grid';
+                detailsGrid.innerHTML = qian.details.map(det => `
+                    <div class="qian-detail-item">
+                        <strong>【${det.label}】</strong>
+                        <span>${det.value}</span>
+                    </div>
+                `).join('');
+            } else if (qian.summary) {
+                detailsGrid.style.display = 'block';
+                detailsGrid.innerHTML = `
+                    <div style="background: rgba(192, 57, 43, 0.06); border: 1px solid rgba(192, 57, 43, 0.25); border-radius: 6px; padding: 1.25rem; text-align: center; font-size: 1.15rem; color: #8B0000; font-weight: bold; line-height: 1.8;">
+                        🙏 聖真開示：${qian.summary}
+                    </div>
+                `;
+            }
+        }
     }
 
     // 重新求籤按鈕
@@ -735,7 +764,10 @@ function initQianSystem() {
     // 複製籤詩
     document.getElementById('btn-copy-qian')?.addEventListener('click', () => {
         if (!currentDrawnQian) return;
-        const text = `【台中烏日九元宮 雷祖靈籤】\n第 ${currentDrawnQian.id} 籤【${currentDrawnQian.ganzhi}】 - ${currentDrawnQian.auspicious}\n卦象：${currentDrawnQian.gua}\n典故：${currentDrawnQian.title}\n\n詩曰：\n${currentDrawnQian.poem.join('\n')}\n\n籤意：\n${currentDrawnQian.explanation}`;
+        const detailsText = currentDrawnQian.details && currentDrawnQian.details.length > 0
+            ? currentDrawnQian.details.map(d => `【${d.label}】${d.value}`).join('\n')
+            : `【聖真開示】\n${currentDrawnQian.summary}`;
+        const text = `【台中烏日九元宮 三十六天罡靈籤】\n第 ${currentDrawnQian.id} 籤【${currentDrawnQian.name}】 - ${currentDrawnQian.auspicious}\n冠首神尊：${currentDrawnQian.acrostic}\n籤別：${currentDrawnQian.numberTitle}\n\n詩曰：\n${currentDrawnQian.poem.join('\n')}\n\n${detailsText}`;
         navigator.clipboard.writeText(text).then(() => {
             window.godCursor?.showToast("籤詩已成功複製至剪貼簿！");
         });
