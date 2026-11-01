@@ -176,6 +176,13 @@ function initNews() {
 // -------------------------------------------------------------
 const HIGHLIGHTS_DATA = [
     {
+        title: "捐贈普渡品關懷弱勢兒少獲頒家扶感謝狀",
+        meta: "📅 115年9月5日 ｜ 📍 台灣兒童暨家庭扶助基金會",
+        desc: "台中烏日九元宮熱心公益，積極關懷台中市弱勢兒少，中元普渡圓滿後捐贈普渡物資一批，嘉惠貧困家庭及兒童。榮獲家扶基金會致贈感謝狀肯定，實踐雷尊慈悲濟世之善心懿行：「懂得給予及憐恤人的，是最富足的。」",
+        img: "images/highlights/hl_charity_certificate.png",
+        category: "charity"
+    },
+    {
         title: "安營換符祈安實錄",
         meta: "📅 115年04月19日 ｜ 📍 烏日四方營盤",
         desc: "神劍定營驅邪煞，五方旗揚鎮乾坤。安設五營神兵神將，敕化平安神符，掃除草野陰霾，庇佑合境平安吉慶。本片精選安營換符精彩科儀紀實，長度一分鐘，歡迎善信同霑神恩。",
@@ -190,13 +197,6 @@ const HIGHLIGHTS_DATA = [
         img: "images/highlights/hl_wucai_cover.jpg",
         video: "videos/paozha_wucaishen.mp4",
         category: "wucai"
-    },
-    {
-        title: "捐贈普渡品關懷弱勢兒少獲頒家扶感謝狀",
-        meta: "📅 115年9月5日 ｜ 📍 台灣兒童暨家庭扶助基金會",
-        desc: "台中烏日九元宮熱心公益，積極關懷台中市弱勢兒少，中元普渡圓滿後捐贈普渡物資一批，嘉惠貧困家庭及兒童。榮獲家扶基金會致贈感謝狀肯定，實踐雷尊慈悲濟世之善心懿行：「懂得給予及憐恤人的，是最富足的。」",
-        img: "images/highlights/hl_charity_certificate.png",
-        category: "charity"
     }
 ];
 
