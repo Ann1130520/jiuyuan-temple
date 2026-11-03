@@ -555,8 +555,8 @@ function initBiaoSystem() {
             const rightState = Math.random() < 0.5 ? 'flat' : 'round';
 
             // 更新杯形 SVG
-            biaoLeft.innerHTML = `<img src="images/biao_bamboo_${leftState}.png" alt="筊杯" />`;
-            biaoRight.innerHTML = `<img src="images/biao_bamboo_${rightState}.png" alt="筊杯" />`;
+            biaoLeft.innerHTML = `<img src="images/biao_${leftState}.svg" alt="筊杯" />`;
+            biaoRight.innerHTML = `<img src="images/biao_${rightState}.svg" alt="筊杯" />`;
 
             // 微隨機傾斜角度
             const degL = Math.floor(Math.random() * 30 - 15);
@@ -727,8 +727,8 @@ function initQianSystem() {
             
             if (isSheng) {
                 // 聖杯：一平一凸
-                qianBiaoLeft.innerHTML = `<img src="images/biao_bamboo_round.png" alt="凸" />`;
-                qianBiaoRight.innerHTML = `<img src="images/biao_bamboo_flat.png" alt="平" style="transform: scaleX(-1);" />`;
+                qianBiaoLeft.innerHTML = `<img src="images/biao_round.svg" alt="凸" />`;
+                qianBiaoRight.innerHTML = `<img src="images/biao_flat.svg" alt="平" style="transform: scaleX(-1);" />`;
                 if (qianBiaoLeftLabel) { qianBiaoLeftLabel.textContent = "左：陰面(凸)"; qianBiaoLeftLabel.className = "biao-state-pill round"; }
                 if (qianBiaoRightLabel) { qianBiaoRightLabel.textContent = "右：陽面(平)"; qianBiaoRightLabel.className = "biao-state-pill flat"; }
 
@@ -744,14 +744,14 @@ function initQianSystem() {
                 // 笑杯或陰杯，需重抽
                 const isXiao = Math.random() < 0.5;
                 if (isXiao) {
-                    qianBiaoLeft.innerHTML = `<img src="images/biao_bamboo_flat.png" alt="平" />`;
-                    qianBiaoRight.innerHTML = `<img src="images/biao_bamboo_flat.png" alt="平" style="transform: scaleX(-1);" />`;
+                    qianBiaoLeft.innerHTML = `<img src="images/biao_flat.svg" alt="平" />`;
+                    qianBiaoRight.innerHTML = `<img src="images/biao_flat.svg" alt="平" style="transform: scaleX(-1);" />`;
                     if (qianBiaoLeftLabel) { qianBiaoLeftLabel.textContent = "左：陽面(平)"; qianBiaoLeftLabel.className = "biao-state-pill flat"; }
                     if (qianBiaoRightLabel) { qianBiaoRightLabel.textContent = "右：陽面(平)"; qianBiaoRightLabel.className = "biao-state-pill flat"; }
                     qianBiaoResult.innerHTML = "<span style='color:#F1C40F;'>【🟡 雙平朝上 ➔ 笑杯】天尊笑而不答，此籤非所賜之籤，請重新搖筒抽籤。</span>";
                 } else {
-                    qianBiaoLeft.innerHTML = `<img src="images/biao_bamboo_round.png" alt="凸" />`;
-                    qianBiaoRight.innerHTML = `<img src="images/biao_bamboo_round.png" alt="凸" style="transform: scaleX(-1);" />`;
+                    qianBiaoLeft.innerHTML = `<img src="images/biao_round.svg" alt="凸" />`;
+                    qianBiaoRight.innerHTML = `<img src="images/biao_round.svg" alt="凸" style="transform: scaleX(-1);" />`;
                     if (qianBiaoLeftLabel) { qianBiaoLeftLabel.textContent = "左：陰面(凸)"; qianBiaoLeftLabel.className = "biao-state-pill round"; }
                     if (qianBiaoRightLabel) { qianBiaoRightLabel.textContent = "右：陰面(凸)"; qianBiaoRightLabel.className = "biao-state-pill round"; }
                     qianBiaoResult.innerHTML = "<span style='color:#E74C3C;'>【🔴 雙凸朝上 ➔ 陰杯】天尊示警不可，此籤非所賜之籤，請重新搖筒抽籤。</span>";
